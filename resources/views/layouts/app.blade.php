@@ -11,6 +11,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="js/app.js"></script>
     <link rel="stylesheet" href="/css/app.css">
+    @yield('head')
     @vite('resources/css/app.css')
 </head>
 <body class="font-mono" onload="init()">
@@ -98,7 +99,7 @@
             <div class="mt-20">
                 <h4 class="text-neutral-400">Kontaktiere uns!</h4><br>
                 <div>Tel.: 12345 7891012</div><br>
-                <h4>Support Öffungszeiten</h4>
+                <h4>Support Öffnungszeiten</h4>
                 <div>Mo - Fr: 10-15 Uhr</div>
             </div>
             <div class="mt-20">
@@ -132,8 +133,8 @@
         <div class="lg:hidden mt-5 bg-neutral-800 h-224 text-white"><br>
             <div class="ml-8">
                 <h4 class="text-neutral-400">Kontaktiere uns!</h4><br>
-                <div>Tel.: 02402 127398</div><br>
-                <h4>Öffungszeiten</h4>
+                <div>Tel.: 12345 7891012</div><br>
+                <h4>Support Öffnungszeiten</h4>
                 <div>Mo - Fr: 10-15 Uhr</div>
             </div><br>
             <div class="ml-8">
@@ -142,13 +143,11 @@
                 <div>Widerruf</div>
                 <div>Kontakt</div>
                 <div>FAQ</div>
-                <div>Großhandel/Einzelhandel</div>
             </div><br>
             <div class="ml-8">
-                <h4 class="text-neutral-400">Aytan</h4><br>
+                <h4 class="text-neutral-400">Abalo</h4><br>
                 <div>Mission</div>
                 <div>Geschichte</div>
-                <div>Produktionsprozess</div>
                 <div>Jobs</div>
                 <div>Kooperationen</div>
             </div><br>
@@ -159,10 +158,9 @@
                 <div>Datenschutz</div>
             </div><br>
             <div class="ml-8">
-                <h4 class="text-neutral-400">Aytan International</h4><br>
+                <h4 class="text-neutral-400">Abalo International</h4><br>
                 <ul class="list-disc">
                     <li>Deutschland</li>
-                    <li>Schweden</li>
                     <li>Europa</li>
                 </ul>
             </div>

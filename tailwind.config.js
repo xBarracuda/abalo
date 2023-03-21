@@ -6,6 +6,9 @@ module.exports = {
         "./resources/**/*.vue",
     ],
   theme: {
+        inset: {
+            '1/10': '10%',
+        },
     extend: {},
   },
   plugins: [],

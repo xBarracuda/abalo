@@ -25,7 +25,7 @@
                 <tr class="border border-slate-400">
                     <td class="border border-slate-400">{{$a->id}}</td>
                     <td class="border border-slate-400">{{$a->ab_name}}</td>
-                    <td class="border border-slate-400">{{$a->ab_price}}</td>
+                    <td class="border border-slate-400">{{$a->ab_price}}€</td>
                     <td class="border border-slate-400">{{$a->ab_description}}</td>
                     <td class="border border-slate-400">{{$a->ab_creator_id}}</td>
                     <td class="border border-slate-400">{{$a->ab_createdate}}</td>
@@ -58,7 +58,7 @@
                 <tr class="border border-slate-400">
                     <td class="border border-slate-400">{{$a->id}}</td>
                     <td class="border border-slate-400">{{$a->ab_name}}</td>
-                    <td class="border border-slate-400">{{$a->ab_price}}</td>
+                    <td class="border border-slate-400">{{$a->ab_price}}€</td>
                     <td class="border border-slate-400">{{$a->ab_description}}</td>
                     <td class="border border-slate-400">{{$a->ab_creator_id}}</td>
                     <td class="border border-slate-400">{{$a->ab_createdate}}</td>
