@@ -16,12 +16,12 @@ class AuthController extends Controller
         $request->session()->put('abalo_user', 'visitor');
         $request->session()->put('abalo_mail', 'visitor@abalo.example.com');
         $request->session()->put('abalo_time', time());
-        return redirect()->route('haslogin');
+        return redirect()->action([HomeController::class,'index']);
     }
 
     public function logout(Request $request) {
         $request->session()->flush();
-        return redirect()->route('haslogin');
+        return redirect()->action([HomeController::class,'index']);
     }
 
 

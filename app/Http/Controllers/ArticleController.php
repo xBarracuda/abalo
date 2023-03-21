@@ -7,6 +7,7 @@ use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller as BaseController;
+use Psr\Log\NullLogger;
 
 class ArticleController extends BaseController
 {
@@ -14,10 +15,14 @@ class ArticleController extends BaseController
     {
         if (!$request->input('search'))
         {
-            return view('/articles',['articles' => NULL]);
+            $allarticles = Article::all();
+            return view('/articles',['articles' => NULL, 'allArticles' => $allarticles]);
         }
         $search = strtolower($request->input('search'));
         $articles = Article::query()->whereRaw('LOWER(ab_name) LIKE ?', ['%'.$search.'%'])->get();
-        return view('/articles',['articles' => $articles]);
+        return view('articles',[
+            'articles' => $articles,
+            'allArticles' => NULL
+        ]);
     }
 }
