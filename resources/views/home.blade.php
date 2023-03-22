@@ -63,6 +63,35 @@
         <span class="dot" onclick="currentSlide(1)"></span>
         <span class="dot" onclick="currentSlide(2)"></span>
     </div>
+
+    <div class="h-80 max-sm:h-96 my-5 flex bg-gray-300/50">
+        <div class="mx-auto mt-10 text-center">
+            <i class="fa-solid fa-envelope scale-150"></i>
+            <div class="font-bold text-2xl mt-3">
+                Newsletter abonnieren!
+                <div class="font-normal text-lg">
+                    Wir bringen Sonderangebote, Rabattaktionen und aktuelle Trends zu dir nach Hause!
+                    <div class="mt-5">
+                        <form method="post" action="/subscribe">
+                            @csrf
+                            <input type="email" name="email" maxlength="60" placeholder="E-Mail Adresse"  class="rounded-lg w-3/4"><br>
+                            <input type="submit" value="Kostenlos abonnieren" required class="mt-5 border border-black w-1/2 p-2 rounded-lg cursor-pointer bg-white hover:bg-gray-400 hover:transition-all">
+                        </form>
+                        @if($successMsg)
+                            <div class="text-green-500 mt-2">
+                                {{$successMsg}}
+                            </div>
+                        @elseif($errMsg)
+                            <div class="text-red-500 mt-2">
+                                {{$errMsg}}
+                            </div>
+                        @endif
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 @endsection
 
 @section('footer')

@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/',[\App\Http\Controllers\HomeController::class,'index']);
+Route::post('/subscribe',[\App\Http\Controllers\HomeController::class,'subscribe']);
 
 Route::get('/articles',[\App\Http\Controllers\ArticleController::class,'show']);
 
