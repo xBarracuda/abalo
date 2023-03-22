@@ -11,6 +11,9 @@
 @section('main')
 <div class="text-center my-5">
     @if($articles && count($articles) != 0)
+        @if(count($articles) <= 3)
+            <div class="h-80">
+        @endif
         <table>
             <tr class="border border-slate-400 font-bold">
                 <td class="border border-slate-400">ID</td>
@@ -39,6 +42,9 @@
                 </tr>
             @endforeach
         </table>
+            @if(count($articles) <= 3)
+            </div>
+            @endif
     @elseif($articles && count($articles) == 0)
         <div class="h-80 flex">
             <h1 class="my-auto mx-auto font-bold text-3xl">Es tut uns leid, Ihre Anfrage hat keinen Treffer ergeben :(</h1>
