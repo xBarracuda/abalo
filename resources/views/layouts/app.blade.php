@@ -24,10 +24,10 @@
             <div class="mr-16 max-xl:hidden">
                 <div class="flex justify-evenly align-items-center">
                     <div class="mt-8">
-                        <a href="/" class="hover:underline hover:font-bold">Home</a>
+                        <a href="/" class="hover:underline @if(\Illuminate\Support\Facades\Route::getCurrentRoute()->getName() == 'home') underline decoration-1 font-bold @endif hover:font-bold">Home</a>
                     </div>
                     <div class="mt-8">
-                        <a href="/articles" class="hover:underline hover:font-bold">Artikel</a>
+                        <a href="/articles" class="hover:underline @if(\Illuminate\Support\Facades\Route::getCurrentRoute()->getName() == 'articles') underline decoration-1 font-bold @endif hover:font-bold">Artikel</a>
                     </div>
                     <div class="mt-8">
                         <a href="/" class="hover:underline hover:font-bold">Kontakt</a>
