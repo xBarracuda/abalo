@@ -21,7 +21,7 @@
             <div>
                 <a href="/"><img src="img/abalo-logos.png" width="80" class=" mx-auto"></a>
             </div>
-            <div class="mr-16 max-xl:hidden">
+            <div class="mr-16 max-xl:hidden" id="navigationItems">
                 <div class="flex justify-evenly align-items-center">
                     <div class="mt-8">
                         <a href="/" class="hover:underline @if(\Illuminate\Support\Facades\Route::getCurrentRoute()->getName() == 'home') underline decoration-1 font-bold @endif hover:font-bold">Home</a>
@@ -33,7 +33,7 @@
                         <a href="/" class="hover:underline hover:font-bold">Kontakt</a>
                     </div>
                     <div class="mt-8">
-                        <a href="/" class="hover:underline hover:font-bold"><i class="fa-solid fa-magnifying-glass"></i></a>
+                        <button onclick="searchbar()"><i class="fa-solid fa-magnifying-glass"></i></button>
                     </div>
                     <div class="mt-8">
                         <a href="/" class="hover:underline hover:font-bold"><i class="fa-solid fa-cart-shopping"></i></a>
@@ -50,8 +50,14 @@
                             <a href="/logout" class="hover:underline hover:font-bold">Ausloggen</a>
                         </div>
                     @endif
-
-
+                </div>
+            </div>
+            <div class="absolute w-1/2 left-1/2 my-6 max-xl:hidden grid grid-cols-2" id="searchbar">
+                <form method="get" action="/articles">
+                    <input type="text" name="search" class="rounded-xl w-full" placeholder="Ihr Suchbegriff" autocomplete="off">
+                </form>
+                <div class="m-auto" >
+                    <button id="searchbarClose" onclick="searchbar()"></button>
                 </div>
             </div>
             <div class="mr-16 xl:hidden flex">

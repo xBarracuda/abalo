@@ -16,6 +16,19 @@ function init() {
     currentSlide(1);
 }
 
+function searchbar() {
+    if (document.getElementById('navigationItems').hidden === true) {
+        document.getElementById('navigationItems').hidden = false;
+        document.getElementById('searchbar').style.visibility = "hidden";
+        document.getElementById('searchbarClose').innerHTML = "";
+        return;
+    }
+
+    document.getElementById('searchbarClose').innerHTML = "<i class=\"fa-solid fa-xmark scale-150\"></i>";
+    document.getElementById('navigationItems').hidden = true;
+    document.getElementById('searchbar').style.visibility = "visible";
+}
+
 let slideIndex = 1;
 showSlides(slideIndex);
 
