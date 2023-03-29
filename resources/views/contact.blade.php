@@ -10,7 +10,7 @@
 @endsection
 
 @section('main')
-    <div class="flex my-10">
+    <div class="flex my-10 px-4">
         <div class="mx-auto text-lg">
             <h2 class="text-4xl font-bold">Kontaktformular</h2>
             <p class="my-4 font-bold">Fragen, Anregungen oder Kritik? Nur zu, schreiben Sie uns!</p>

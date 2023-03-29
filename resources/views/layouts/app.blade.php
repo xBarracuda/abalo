@@ -75,7 +75,7 @@
                 <a href="/articles" class="hover:underline hover:font-bold">Artikel</a>
             </div>
             <div>
-                <a href="/" class="hover:underline hover:font-bold">Kontakt</a>
+                <a href="/contact" class="hover:underline hover:font-bold">Kontakt</a>
             </div>
             <div>
                 <a href="/" class="hover:underline hover:font-bold">Suche</a>
