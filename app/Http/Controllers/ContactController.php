@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Contact;
 use Illuminate\Http\Request;
 use Symfony\Component\Mailer\Transport;
 use Symfony\Component\Mailer\Mailer;
@@ -59,6 +60,12 @@ class ContactController extends Controller
             ->subject('Contact Request! ' . date(DATE_RFC2822))
             ->text($text);
         $mailer->send($email);
+
+        $contact = new Contact();
+        $contact->ab_name = $name;
+        $contact->ab_mail = $useremail;
+        $contact->ab_text = $text;
+        $contact->save();
 
         $successMsgContact = "Vielen Dank. Wir werden Ihre Anfrage schnellstmöglich bearbeiten.";
         session()->put('successMsgContact',$successMsgContact);
