@@ -30,7 +30,7 @@
                         <a href="/articles" class="hover:underline @if(\Illuminate\Support\Facades\Route::getCurrentRoute()->getName() == 'articles') underline decoration-1 font-bold @endif hover:font-bold">Artikel</a>
                     </div>
                     <div class="mt-8">
-                        <a href="/" class="hover:underline hover:font-bold">Kontakt</a>
+                        <a href="/contact" class="hover:underline @if(\Illuminate\Support\Facades\Route::getCurrentRoute()->getName() == 'contact') underline decoration-1 font-bold @endif hover:font-bold">Kontakt</a>
                     </div>
                     <div class="mt-8">
                         <button onclick="searchbar()"><i class="fa-solid fa-magnifying-glass"></i></button>
