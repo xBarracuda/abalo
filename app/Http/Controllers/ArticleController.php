@@ -16,7 +16,7 @@ class ArticleController extends BaseController
         if (!$request->input('search'))
         {
             $allarticles = Article::all();
-            return view('/articles',['articles' => NULL, 'allArticles' => $allarticles]);
+            return view('articles',['articles' => NULL, 'allArticles' => $allarticles]);
         }
         $search = strtolower($request->input('search'));
         $articles = Article::query()->whereRaw('LOWER(ab_name) LIKE ?', ['%'.$search.'%'])->get();

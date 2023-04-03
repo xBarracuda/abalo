@@ -34,7 +34,7 @@
                     <td class="border border-slate-400">{{$a->ab_createdate}}</td>
                     <td class="border border-slate-400">
                         @if(file_exists('img/'.$a->id.'.png'))
-                            <img src="{{'img/'.$a->id.'.png'}}" width="10" alt="{{$a->name}}">
+                            <img src="{{'img/'.$a->id.'.png'}}" width="100" alt="{{$a->name}}">
                         @elseif(file_exists('img/'.$a->id.'.jpg'))
                             <img src="{{'img/'.$a->id.'.jpg'}}" width="100" alt="{{$a->name}}">
                         @endif
@@ -70,7 +70,7 @@
                     <td class="border border-slate-400">{{$a->ab_createdate}}</td>
                     <td class="border border-slate-400">
                         @if(file_exists('img/'.$a->id.'.png'))
-                            <img src="{{'img/'.$a->id.'.png'}}" width="10" alt="{{$a->name}}">
+                            <img src="{{'img/'.$a->id.'.png'}}" width="100" alt="{{$a->name}}">
                         @elseif(file_exists('img/'.$a->id.'.jpg'))
                             <img src="{{'img/'.$a->id.'.jpg'}}" width="100" alt="{{$a->name}}">
                         @endif
