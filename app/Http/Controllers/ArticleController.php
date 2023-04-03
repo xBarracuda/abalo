@@ -11,8 +11,21 @@ use Psr\Log\NullLogger;
 
 class ArticleController extends BaseController
 {
-    public function show(Request $request)
+    public function show(Request $request, string $id = NULL)
     {
+        if ($id)
+        {
+            $a = Article::query()->select(['ab_article.id','ab_article.ab_name','ab_article.ab_price','ab_article.ab_description','ab_article.ab_creator_id','ab_article.ab_createdate'])
+                                 ->join('ab_article_has_articlecategory','ab_article.id', '=','ab_article_has_articlecategory.ab_article_id')
+                                 ->join('ab_articlecategory','ab_article_has_articlecategory.ab_articlecategory_id','=','ab_articlecategory.id')
+                                 ->where('ab_articlecategory.id','=',$id)
+                                 ->get();
+
+            return view('articles',[
+                'articles' => $a,
+                'allArticles' => NULL
+            ]);
+        }
         if (!$request->input('search'))
         {
             $allarticles = Article::all();
@@ -24,5 +37,10 @@ class ArticleController extends BaseController
             'articles' => $articles,
             'allArticles' => NULL
         ]);
+    }
+
+    public function withID(Request $request, string $id)
+    {
+        dd($id);
     }
 }

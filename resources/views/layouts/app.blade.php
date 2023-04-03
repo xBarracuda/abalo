@@ -19,7 +19,7 @@
     <header>
         <div class="w-full h-34 bg-gray-300/50 grid grid-cols-2 grid-cols-[20%,80%]">
             <div>
-                <a href="/"><img src="img/abalo-logos.png" width="80" class=" mx-auto"></a>
+                <a href="/"><img src="{{asset('img/abalo-logos.png')}}" width="80" class=" mx-auto"></a>
             </div>
             <div class="mr-16 max-xl:hidden" id="navigationItems">
                 <div class="flex justify-evenly align-items-center">
@@ -185,44 +185,44 @@
             <div class="mt-20">
                 <div>Versand</div>
                 <div class="mt-5">
-                    <img src="img/2000px-DHL_Logo.png">
+                    <img src="{{asset('img/2000px-DHL_Logo.png')}}">
                 </div>
             </div>
             <div class="mt-20">
                 <div>Zahlung</div>
-                <img src="img/1280px-PayPal_logo.png" class="inline mt-5  scale-100">
-                <img src="img/Vorkasse.png" class="inline mt-5 ml-3 scale-75">
-                <img src="img/Visa_2014_logo_detail.png" class="inline mt-5 ml-3 scale-100">
-                <img src="img/mc_hrz_thmb_282_2x.png" class="inline mt-5 ml-3 scale-100">
+                <img src="{{asset('img/1280px-PayPal_logo.png')}}" class="inline mt-5  scale-100">
+                <img src="{{asset('img/Vorkasse.png')}}" class="inline mt-5 ml-3 scale-75">
+                <img src="{{asset('img/Visa_2014_logo_detail.png')}}" class="inline mt-5 ml-3 scale-100">
+                <img src="{{asset('img/mc_hrz_thmb_282_2x.png')}}" class="inline mt-5 ml-3 scale-100">
             </div>
             <div class="mt-20">
                 <div>Social Media</div>
-                <img src="img/f_logo_RGB-Hex-Blue_512.png" class="inline mt-5 ml-3">
-                <img src="img/2000px-Instagram_logo_2016.png" class="inline mt-5 ml-3">
-                <img src="img/image_preview.png" class="inline mt-5 ml-3">
-                <img src="img/tiktok-app-icon-8.png" class="inline mt-5 ml-3">
+                <img src="{{asset('img/f_logo_RGB-Hex-Blue_512.png')}}" class="inline mt-5 ml-3">
+                <img src="{{asset('img/2000px-Instagram_logo_2016.png')}}" class="inline mt-5 ml-3">
+                <img src="{{asset('img/image_preview.png')}}" class="inline mt-5 ml-3">
+                <img src="{{asset('img/tiktok-app-icon-8.png')}}" class="inline mt-5 ml-3">
             </div>
         </div>
         <div class="bg-neutral-800 h-96 text-neutral-400 lg:hidden">
             <div class="ml-8"><br>
                 <div>Versand</div>
                 <div class="mt-5">
-                    <img src="img/2000px-DHL_Logo.png">
+                    <img src="{{asset('img/2000px-DHL_Logo.png')}}">
                 </div>
             </div>
             <div class="mt-20 ml-8">
                 <div>Zahlung</div>
-                <img src="img/1280px-PayPal_logo.png" class="inline mt-5  scale-100">
-                <img src="img/Vorkasse.png" class="inline mt-5 ml-3 scale-75">
-                <img src="img/Visa_2014_logo_detail.png" class="inline mt-5 ml-3 scale-100">
-                <img src="img/mc_hrz_thmb_282_2x.png" class="inline mt-5 ml-3 scale-100">
+                <img src="{{asset('img/1280px-PayPal_logo.png')}}" class="inline mt-5  scale-100">
+                <img src="{{asset('img/Vorkasse.png')}}" class="inline mt-5 ml-3 scale-75">
+                <img src="{{asset('img/Visa_2014_logo_detail.png')}}" class="inline mt-5 ml-3 scale-100">
+                <img src="{{asset('img/mc_hrz_thmb_282_2x.png')}}" class="inline mt-5 ml-3 scale-100">
             </div>
             <div class="mt-20 ml-8">
                 <div>Social Media</div>
-                <img src="img/f_logo_RGB-Hex-Blue_512.png" class="inline mt-5 ml-3">
-                <img src="img/2000px-Instagram_logo_2016.png" class="inline mt-5 ml-3">
-                <img src="img/image_preview.png" class="inline mt-5 ml-3">
-                <img src="img/tiktok-app-icon-8.png" class="inline mt-5 ml-3">
+                <img src="{{asset('img/f_logo_RGB-Hex-Blue_512.png')}}" class="inline mt-5 ml-3">
+                <img src="{{asset('img/2000px-Instagram_logo_2016.png')}}" class="inline mt-5 ml-3">
+                <img src="{{asset('img/image_preview.png')}}" class="inline mt-5 ml-3">
+                <img src="{{asset('img/tiktok-app-icon-8.png')}}" class="inline mt-5 ml-3">
             </div>
         </div>
 

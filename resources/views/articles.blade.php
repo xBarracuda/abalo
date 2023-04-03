@@ -11,7 +11,7 @@
 @section('main')
 <div class="text-center my-5">
     @if($articles && count($articles) != 0)
-        @if(count($articles) <= 3)
+        @if(count($articles) <= 4)
             <div class="h-80">
         @endif
         <table>
@@ -34,15 +34,15 @@
                     <td class="border border-slate-400">{{$a->ab_createdate}}</td>
                     <td class="border border-slate-400">
                         @if(file_exists('img/'.$a->id.'.png'))
-                            <img src="{{'img/'.$a->id.'.png'}}" width="100" alt="{{$a->name}}">
-                        @elseif(file_exists('img/'.$a->id.'.jpg'))
-                            <img src="{{'img/'.$a->id.'.jpg'}}" width="100" alt="{{$a->name}}">
+                            <img src="{{asset('img/'.$a->id.'.png')}}" width="100" alt="{{$a->name}}">
+                        @elseif(file_exists(('img/'.$a->id.'.jpg')))
+                            <img src="{{asset('img/'.$a->id.'.jpg')}}" width="100" alt="{{$a->name}}">
                         @endif
                     </td>
                 </tr>
             @endforeach
         </table>
-            @if(count($articles) <= 3)
+            @if(count($articles) <= 4)
             </div>
             @endif
     @elseif($articles && count($articles) == 0)
@@ -70,9 +70,9 @@
                     <td class="border border-slate-400">{{$a->ab_createdate}}</td>
                     <td class="border border-slate-400">
                         @if(file_exists('img/'.$a->id.'.png'))
-                            <img src="{{'img/'.$a->id.'.png'}}" width="100" alt="{{$a->name}}">
-                        @elseif(file_exists('img/'.$a->id.'.jpg'))
-                            <img src="{{'img/'.$a->id.'.jpg'}}" width="100" alt="{{$a->name}}">
+                            <img src="{{asset('img/'.$a->id.'.png')}}" width="100" alt="{{$a->name}}">
+                        @elseif(file_exists(('img/'.$a->id.'.jpg')))
+                            <img src="{{asset('img/'.$a->id.'.jpg')}}" width="100" alt="{{$a->name}}">
                         @endif
                     </td>
                 </tr>
