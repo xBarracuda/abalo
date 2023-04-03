@@ -17,7 +17,7 @@
 <body class="font-mono" onload="init()">
 @section('header')
     <header>
-        <div class="w-full h-34 bg-gray-300/50 grid grid-cols-2">
+        <div class="w-full h-34 bg-gray-300/50 grid grid-cols-2 grid-cols-[20%,80%]">
             <div>
                 <a href="/"><img src="img/abalo-logos.png" width="80" class=" mx-auto"></a>
             </div>
@@ -27,7 +27,16 @@
                         <a href="/" class="hover:underline @if(\Illuminate\Support\Facades\Route::getCurrentRoute()->getName() == 'home') underline decoration-1 font-bold @endif hover:font-bold">Home</a>
                     </div>
                     <div class="mt-8">
+                        <a href="/category" class="hover:underline @if(\Illuminate\Support\Facades\Route::getCurrentRoute()->getName() == 'category') underline decoration-1 font-bold @endif hover:font-bold">Kategorien</a>
+                    </div>
+                    <div class="mt-8">
                         <a href="/articles" class="hover:underline @if(\Illuminate\Support\Facades\Route::getCurrentRoute()->getName() == 'articles') underline decoration-1 font-bold @endif hover:font-bold">Artikel</a>
+                    </div>
+                    <div class="mt-8">
+                        <a href="/sell" class="hover:underline @if(\Illuminate\Support\Facades\Route::getCurrentRoute()->getName() == 'sell') underline decoration-1 font-bold @endif hover:font-bold">Verkaufen</a>
+                    </div>
+                    <div class="mt-8">
+                        <a href="/about" class="hover:underline @if(\Illuminate\Support\Facades\Route::getCurrentRoute()->getName() == 'about') underline decoration-1 font-bold @endif hover:font-bold">Unternehmen</a>
                     </div>
                     <div class="mt-8">
                         <a href="/contact" class="hover:underline @if(\Illuminate\Support\Facades\Route::getCurrentRoute()->getName() == 'contact') underline decoration-1 font-bold @endif hover:font-bold">Kontakt</a>

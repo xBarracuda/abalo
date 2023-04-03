@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Article;
+use App\Models\Article_has_articlecategory;
 use App\Models\Articlecategory;
 use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
@@ -86,6 +87,30 @@ class DevelopmentData extends Seeder
                 $articleCategory->ab_name = $arr[$count++];
                 $articleCategory->ab_parent = $arr[$count] == "NULL" ? NULL : $arr[$count];
                 $articleCategory->save();
+            }
+            fclose($handle);
+        }
+        //article_has_category.csv
+        $firstRow = true;
+        $num = 1;
+        if (($handle = fopen(resource_path()."/csv/article_has_category.csv", "r")))
+        {
+            while (($data = fgets($handle, 1000))) {
+                if ($firstRow)
+                {
+                    $firstRow = false;
+                    continue;
+                }
+
+                $count = 0;
+                $arr = str_getcsv($data, ';');
+
+
+                $articleCat = new Article_has_articlecategory();
+                $articleCat->id = $num++;
+                $articleCat->ab_articlecategory_id = $arr[$count++];
+                $articleCat->ab_article_id = $arr[$count++];
+                $articleCat->save();
             }
             fclose($handle);
         }
