@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://unpkg.com/flowbite@1.5.5/dist/flowbite.min.css" />
     <script src="https://unpkg.com/flowbite@1.5.5/dist/flowbite.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="js/app.js"></script>
+    <script src="{{asset('js/app.js')}}"></script>
     <link rel="stylesheet" href="/css/app.css">
     @yield('head')
     @vite('resources/css/app.css')
@@ -35,8 +35,15 @@
                     <div class="mt-8">
                         <a href="/sell" class="hover:underline @if(\Illuminate\Support\Facades\Route::getCurrentRoute()->getName() == 'sell') underline decoration-1 font-bold @endif hover:font-bold">Verkaufen</a>
                     </div>
-                    <div class="mt-8">
-                        <a href="/about" class="hover:underline @if(\Illuminate\Support\Facades\Route::getCurrentRoute()->getName() == 'about') underline decoration-1 font-bold @endif hover:font-bold">Unternehmen</a>
+                    <div class="mt-8 relative" id="about">
+                        <a href="/about"  class="hover:underline @if(\Illuminate\Support\Facades\Route::getCurrentRoute()->getName() == 'about') underline decoration-1 font-bold @endif hover:font-bold">Unternehmen</a>
+                        <div id="aboutBar" class="w-full bg-gray-300/50 absolute">
+                            <ul class="list-disc">
+                                <a href="/about#philosophy" class="hover:underline"><li>Philosophie</li></a>
+                                <a href="/about#career" class="hover:underline"><li>Karriere</li></a>
+                            </ul>
+
+                        </div>
                     </div>
                     <div class="mt-8">
                         <a href="/contact" class="hover:underline @if(\Illuminate\Support\Facades\Route::getCurrentRoute()->getName() == 'contact') underline decoration-1 font-bold @endif hover:font-bold">Kontakt</a>
@@ -76,21 +83,24 @@
         </div>
     </header>
     <div id="navbar" class="w-full bg-gray-400 transition-all xl:hidden">
-        <div id="navitems" class="h-full text-gray-800 text-center grid grid-cols-1 grid-rows-6 gap-2 place-items-center">
+        <div id="navitems" class="h-full text-gray-800 text-center grid grid-cols-1 grid-rows-7 gap-2 place-items-center">
             <div>
                 <a href="/" class="hover:underline hover:font-bold">Home</a>
+            </div>
+            <div>
+                <a href="/category" class="hover:underline hover:font-bold">Kategorien</a>
             </div>
             <div>
                 <a href="/articles" class="hover:underline hover:font-bold">Artikel</a>
             </div>
             <div>
+                <a href="/sell" class="hover:underline hover:font-bold">Verkaufen</a>
+            </div>
+            <div>
+                <a href="/about" class="hover:underline hover:font-bold">Unternehmen</a>
+            </div>
+            <div>
                 <a href="/contact" class="hover:underline hover:font-bold">Kontakt</a>
-            </div>
-            <div>
-                <a href="/" class="hover:underline hover:font-bold">Suche</a>
-            </div>
-            <div>
-                <a href="/" class="hover:underline hover:font-bold">Einkaufswagen</a>
             </div>
             <div>
                 @if(session()->has('abalo_user'))
@@ -236,5 +246,5 @@
 @show
 
 
-
+<script src="{{asset('js/navbar.js')}}"></script>
 </body>

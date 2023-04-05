@@ -11,7 +11,7 @@
 @section('main')
 <div class="text-center my-5">
     @if($articles && count($articles) != 0)
-        @if(count($articles) <= 4)
+        @if(count($articles) <= 3)
             <div class="h-80">
         @endif
         <table>
