@@ -245,12 +245,12 @@
 @show
 
 @section('cookie-consent')
-    <div id="cookie-consent" class="fixed w-full h-1/6 bg-gray-400 bottom-0 text-center text-sm max-xl:h-1/3 max-sm:h-1/2">
+    <div id="cookie-consent" class="fixed text-white w-full h-1/6 bg-black bottom-0 text-center text-sm max-xl:h-1/3 max-sm:h-1/2 opacity-90 z-10">
         <p class="my-2">Gemäß der Datenschutz-Grundverordnung (DSGVO) sind wir verpflichtet, Sie darüber zu informieren, dass diese Website Cookies verwendet.
             Wir möchten Ihnen die Möglichkeit geben, selbst zu entscheiden, ob Sie der Verwendung von Cookies zustimmen oder nicht. Wenn Sie auf "Akzeptieren" klicken, erklären Sie sich damit einverstanden, dass Cookies gemäß unserer Datenschutzerklärung auf Ihrem Gerät gespeichert werden. Wenn Sie auf "Ablehnen" klicken, werden keine Cookies gespeichert, außer technisch notwendige Cookies, die für den Betrieb der Website erforderlich sind.</p>
         <div class="my-2">
-            <button id="accept" class="border border-black p-1">Akzeptieren</button>
-            <button id="decline" class="border border-black p-1">Ablehnen</button>
+            <button id="accept" class="border border-white p-1 hover:bg-white/50 rounded-md">Akzeptieren</button>
+            <button id="decline" class="border border-white p-1 hover:bg-white/50 rounded-md">Ablehnen</button>
         </div>
     </div>
 @show
