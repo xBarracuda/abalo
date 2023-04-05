@@ -9,3 +9,7 @@
 #aboutBar {
     visibility: hidden;
 }
+
+#cookie-consent {
+    visibility: hidden;
+}

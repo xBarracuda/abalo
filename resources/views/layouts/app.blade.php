@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="https://unpkg.com/flowbite@1.5.5/dist/flowbite.min.css" />
     <script src="https://unpkg.com/flowbite@1.5.5/dist/flowbite.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="{{asset('js/app.js')}}"></script>
     <link rel="stylesheet" href="/css/app.css">
     @yield('head')
     @vite('resources/css/app.css')
@@ -245,6 +244,18 @@
     </footer>
 @show
 
+@section('cookie-consent')
+    <div id="cookie-consent" class="fixed w-full h-1/6 bg-gray-400 bottom-0 text-center text-sm max-xl:h-1/3 max-sm:h-1/2">
+        <p class="my-2">Gemäß der Datenschutz-Grundverordnung (DSGVO) sind wir verpflichtet, Sie darüber zu informieren, dass diese Website Cookies verwendet.
+            Wir möchten Ihnen die Möglichkeit geben, selbst zu entscheiden, ob Sie der Verwendung von Cookies zustimmen oder nicht. Wenn Sie auf "Akzeptieren" klicken, erklären Sie sich damit einverstanden, dass Cookies gemäß unserer Datenschutzerklärung auf Ihrem Gerät gespeichert werden. Wenn Sie auf "Ablehnen" klicken, werden keine Cookies gespeichert, außer technisch notwendige Cookies, die für den Betrieb der Website erforderlich sind.</p>
+        <div class="my-2">
+            <button id="accept" class="border border-black p-1">Akzeptieren</button>
+            <button id="decline" class="border border-black p-1">Ablehnen</button>
+        </div>
+    </div>
+@show
 
 <script src="{{asset('js/navbar.js')}}"></script>
+<script src="{{asset('js/cookiecheck.js')}}"></script>
+<script src="{{asset('js/app.js')}}"></script>
 </body>
