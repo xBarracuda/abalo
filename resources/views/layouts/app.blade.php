@@ -51,7 +51,7 @@
                         <button onclick="searchbar()"><i class="fa-solid fa-magnifying-glass"></i></button>
                     </div>
                     <div class="mt-8">
-                        <button id="cart-icon"><i class="fa-solid fa-cart-shopping"></i></button>
+                        <button id="cart-icon" class=""><i class="fa-solid fa-cart-shopping"></i></button>
                     </div>
                     <div class="mt-8">
                         @if(!session()->has('abalo_user'))
