@@ -51,7 +51,7 @@
                         <button onclick="searchbar()"><i class="fa-solid fa-magnifying-glass"></i></button>
                     </div>
                     <div class="mt-8">
-                        <a href="/" class="hover:underline hover:font-bold"><i class="fa-solid fa-cart-shopping"></i></a>
+                        <button id="cart-icon"><i class="fa-solid fa-cart-shopping"></i></button>
                     </div>
                     <div class="mt-8">
                         @if(!session()->has('abalo_user'))
@@ -111,6 +111,23 @@
 
 
         </div>
+    </div>
+@show
+@section('cart')
+    <div class="w-1/3 bg-gray-300 right-0 absolute h-max z-10 text-center rounded-lg p-2" id="cart">
+        <div class="text-2xl m-auto font-bold">Warenkorb</div>
+        <div id="cart-info">
+            <input type="hidden" value="empty" id="cart-cond">
+            Ihr Warenkorb ist zurzeit leer.
+            <p>Sie können sich <a class="underline" href="/articles">hier</a> Artikel ansehen, die Ihnen gefallen könnten!</p>
+        </div>
+        <table id="cart-table">
+            <tr class="">
+                <td class="p-5 font-bold ">Artikelname</td>
+                <td class="p-5 font-bold">Preis</td>
+                <td class="p-5 font-bold">Artikel entfernen?</td>
+            </tr>
+        </table>
     </div>
 @show
 <main>
@@ -258,4 +275,5 @@
 <script src="{{asset('js/navbar.js')}}"></script>
 <script src="{{asset('js/cookiecheck.js')}}"></script>
 <script src="{{asset('js/app.js')}}"></script>
+<script src="{{asset('js/articles.js')}}"></script>
 </body>

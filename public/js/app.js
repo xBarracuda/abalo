@@ -29,6 +29,15 @@ function searchbar() {
     document.getElementById('searchbar').style.visibility = "visible";
 }
 
+document.getElementById('cart-icon').onclick = function () {
+    if (document.getElementById('cart').style.visibility === "visible")
+    {
+        document.getElementById('cart').style.visibility = "hidden";
+        return;
+    }
+    document.getElementById('cart').style.visibility = "visible";
+}
+
 let slideIndex = 1;
 showSlides(slideIndex);
 

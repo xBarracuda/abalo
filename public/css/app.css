@@ -13,3 +13,10 @@
 #cookie-consent {
     visibility: hidden;
 }
+#cart {
+    visibility: hidden;
+}
+
+#cart-table {
+    display: none;
+}
