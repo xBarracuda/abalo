@@ -17,4 +17,10 @@ class Article extends Model
 
     public $timestamps = false;
 
+    protected $fillable = [
+        'ab_name',
+        'ab_price',
+        'ab_description'
+    ];
+
 }
