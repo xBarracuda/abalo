@@ -307,4 +307,6 @@
 <script src="{{asset('js/cookiecheck.js')}}"></script>
 <script src="{{asset('js/app.js')}}"></script>
 <script src="{{asset('js/articles.js')}}"></script>
+<script src="{{asset('js/newsletter.js')}}"></script>
+
 </body>
