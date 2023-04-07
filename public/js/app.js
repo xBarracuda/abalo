@@ -33,11 +33,21 @@ document.getElementById('cart-icon').onclick = function () {
     if (document.getElementById('cart').style.visibility === "visible")
     {
         document.getElementById('cart').style.visibility = "hidden";
-        document.getElementById('cart-icon').innerHTML = "<i class=\"fa-solid fa-cart-shopping\"></i>";
+
         return;
     }
     document.getElementById('cart').style.visibility = "visible";
-    document.getElementById('cart-icon').innerHTML = "<i class=\"fa-solid fa-xmark\"></i>";
+
+}
+
+document.getElementById('cart-close').onclick = function () {
+    if (document.getElementById('cart').style.visibility === "visible")
+    {
+        document.getElementById('cart').style.visibility = "hidden";
+
+        return;
+    }
+    document.getElementById('cart').style.visibility = "visible";
 }
 
 let slideIndex = 1;

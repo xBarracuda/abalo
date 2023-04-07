@@ -1,15 +1,19 @@
 for(let i = 0; i < document.getElementsByClassName('addButtons').length; i++)
 {
     let buttons = document.getElementsByClassName('addButtons');
+    let addedToCart = false;
     buttons[i].addEventListener('click',function () {
+
         let arr = buttons[i].value.split('/??/');
-        if (document.getElementById(arr[0]).style.opacity === "0.4")
+        if (addedToCart)
         {
             buttons[i].disabled = true;
             return;
         }
        document.getElementById(arr[0]).style.opacity = "0.4";
        buttons[i].disabled = true;
+       addedToCart = true;
+       document.getElementById('cart-counter').innerHTML = (parseInt(document.getElementById('cart-counter').innerHTML) + 1).toString();
 
        if (document.getElementById('cart-cond').value === "empty")
        {
@@ -17,8 +21,9 @@ for(let i = 0; i < document.getElementsByClassName('addButtons').length; i++)
            document.getElementById('cart-cond').value = "items";
            document.getElementById('cart-table').style.display = "initial";
        }
-       let row = document.createElement('tr');
 
+
+       let row = document.createElement('tr');
 
        let articleName = document.createElement('td');
         articleName.className = "px-5 py-2 font-bold";
@@ -38,6 +43,8 @@ for(let i = 0; i < document.getElementsByClassName('addButtons').length; i++)
         remove.addEventListener('click', function () {
             document.getElementById(arr[0]).style.opacity = "1";
             buttons[i].disabled = false;
+            addedToCart = false;
+            document.getElementById('cart-counter').innerHTML = (parseInt(document.getElementById('cart-counter').innerHTML) - 1).toString();
             remove.parentElement.parentElement.remove();
             if (document.getElementById('cart-table').childElementCount === 1) {
                 document.getElementById('cart-info').style.display = "initial";
@@ -58,7 +65,6 @@ for(let i = 0; i < document.getElementsByClassName('addButtons').length; i++)
             sum.className = "font-bold text-2xl m-3";
             sum.id = "sum";
             document.getElementById('cart').appendChild(sum);
-            console.log(sum);
         }
         document.getElementById('cart-table').appendChild(row);
 
@@ -72,7 +78,7 @@ function setSum() {
     {
         sum += parseInt(document.getElementById('cart-table').children[i].children[1].innerHTML.replace('€',''));
     }
-    document.getElementById('sum').innerHTML = "Gesamtpreis: " +  sum + "€";
+    document.getElementById('sum').innerHTML = "Gesamtpreis: " +  sum.toFixed(2) + "€";
 }
 
 
