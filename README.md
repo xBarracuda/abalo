@@ -1,6 +1,11 @@
 Gani Aytan - 3517912
 Mert Karaköse - 3515190
 
+# Abalo - Online Marketplace
+
+## Quick Overview:
+Welcome to Abalo, our open-source online marketplace built on Laravel! This project is a part of our university coursework and provides a convenient way for people to buy and sell products online.
+
 ## Requirements
 1. PHP Version ^8.1
 2. Composer
