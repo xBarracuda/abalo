@@ -14,21 +14,28 @@
         @if($articles && count($articles) != 0)
             <div class="flex justify-evenly flex-wrap">
                 @foreach($articles as $a)
-                    <div class="card m-10 w-48" id="{{$a->id}}">
+                    <div class="card m-10 w-48 bg-gray-400/30" id="{{$a->id}}">
                         <img
                             src="@if(file_exists('img/'.$a->id.'.png')) {{asset('img/'.$a->id.'.png')}} @elseif(file_exists(('img/'.$a->id.'.jpg'))) {{asset('img/'.$a->id.'.jpg')}} @endif"
                             class="" alt="Avatar">
                         <div class="container">
                             <h4><b>{{$a->ab_name}}</b></h4>
-                            <p>{{number_format($a->ab_price,2)}}€</p>
-                            <p class="py-5 h-40">{{$a->ab_description}}</p>
+                            <p class="underline ">{{number_format($a->ab_price,2)}}€</p>
+                            <p class="py-5 h-40 text-sm">{{$a->ab_description}}</p>
                         </div>
-                        <p class="bg-gray-600/50">
-                            <button class="addButtons"
-                                    value="{{$a->id}}/??/{{$a->ab_name}}/??/{{$a->ab_price}}/??/{{$a->ab_description}}">
-                                Zum Warenkorb hinzufügen
-                            </button>
-                        </p>
+                        <button class="addButtons"
+                                value="{{$a->id}}/??/{{$a->ab_name}}/??/{{$a->ab_price}}/??/{{$a->ab_description}}">
+                            <div
+                                class=" rounded-lg bg-green-400/90 grid grid-cols-2 grid-cols-[20%,80%] divide-x divide-black gap-2">
+                                <div class="self-center border border-black rounded-full p-1"><i
+                                        class="fa-solid fa-cart-plus"></i>
+                                </div>
+                                <div>
+                                    Zum Warenkorb hinzufügen
+                                </div>
+
+                            </div>
+                        </button>
                     </div>
                 @endforeach
             </div>
@@ -36,27 +43,6 @@
             <div class="h-80 flex">
                 <h1 class="my-auto mx-auto font-bold text-3xl">Es tut uns leid, Ihre Anfrage hat keinen Treffer ergeben
                     :(</h1>
-            </div>
-        @elseif($allArticles)
-            <div class="flex justify-evenly flex-wrap">
-                @foreach($allArticles as $a)
-                    <div class="card m-10 w-48" id="{{$a->id}}">
-                        <img
-                            src="@if(file_exists('img/'.$a->id.'.png')) {{asset('img/'.$a->id.'.png')}} @elseif(file_exists(('img/'.$a->id.'.jpg'))) {{asset('img/'.$a->id.'.jpg')}} @endif"
-                            class="" alt="Avatar">
-                        <div class="container">
-                            <h4><b>{{$a->ab_name}}</b></h4>
-                            <p>{{number_format($a->ab_price,2)}}€</p>
-                            <p class="py-5 h-40">{{$a->ab_description}}</p>
-                        </div>
-                        <p class="bg-gray-600/50">
-                            <button class="addButtons"
-                                    value="{{$a->id}}/??/{{$a->ab_name}}/??/{{$a->ab_price}}/??/{{$a->ab_description}}">
-                                Zum Warenkorb hinzufügen
-                            </button>
-                        </p>
-                    </div>
-                @endforeach
             </div>
         @endif
 

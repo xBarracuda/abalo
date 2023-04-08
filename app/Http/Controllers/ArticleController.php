@@ -22,24 +22,17 @@ class ArticleController extends BaseController
 
             return view('articles',[
                 'articles' => $a,
-                'allArticles' => NULL
             ]);
         }
         if (!$request->input('search'))
         {
             $allarticles = Article::all();
-            return view('articles',['articles' => NULL, 'allArticles' => $allarticles]);
+            return view('articles',['articles' => $allarticles]);
         }
         $search = strtolower($request->input('search'));
         $articles = Article::query()->whereRaw('LOWER(ab_name) LIKE ?', ['%'.$search.'%'])->get();
         return view('articles',[
             'articles' => $articles,
-            'allArticles' => NULL
         ]);
-    }
-
-    public function withID(Request $request, string $id)
-    {
-        dd($id);
     }
 }
