@@ -16,7 +16,7 @@
 <body class="font-mono" onload="init()">
 @section('header')
     <header>
-        <div class="w-full h-34 bg-gray-300/50 grid grid-cols-2 grid-cols-[20%,80%]">
+        <div class="w-full mb-5 h-34 bg-gray-300/50 grid grid-cols-2 grid-cols-[20%,80%]">
             <div>
                 <a href="/"><img src="{{asset('img/abalo-logos.png')}}" width="80" class=" mx-auto"></a>
             </div>

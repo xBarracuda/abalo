@@ -24,6 +24,8 @@ Route::post('/checkContactData',[\App\Http\Controllers\ContactController::class,
 
 Route::get('/category',[\App\Http\Controllers\CategoryController::class,'show'])->name('category');
 
+Route::get('about',[\App\Http\Controllers\AboutController::class,'show'])->name('about');
+
 Route::get('/login', [App\Http\Controllers\AuthController::class, 'login'])->name('login');
 Route::get('/logout', [App\Http\Controllers\AuthController::class, 'logout'])->name('logout');
 Route::get('/isloggedin', [App\Http\Controllers\AuthController::class, 'isloggedin'])->name('haslogin');
