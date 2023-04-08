@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title','Artikel')
+@section('title','Artikel - Abalo')
 @section('head')
     <link rel="stylesheet" href="{{asset('css/articles.css')}}">
 @endsection

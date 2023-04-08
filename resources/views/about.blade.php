@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title','Kontaktanfrage')
+@section('title','Unser Unternehmen - Abalo')
 @section('head')
 
 @endsection
@@ -76,8 +76,8 @@
                 Wir suchen Menschen, die bereit sind, Verantwortung zu übernehmen und sich für unsere Mission und Werte
                 einzusetzen. Wenn Sie eine Leidenschaft für Technologie, E-Commerce und Unternehmertum haben und Teil
                 eines dynamischen und wachsenden Unternehmens werden möchten, dann sind Sie bei uns genau richtig. Wir
-                freuen uns auf Ihre Bewerbung! Reichen Sie Ihre Bewerbungsunterlagen gerne per E-Mail ein: <span
-                    class="underline text-blue-500">career@abalo.de</span></p>
+                freuen uns auf Ihre Bewerbung! Reichen Sie Ihre Bewerbungsunterlagen gerne per E-Mail ein: <a
+                    class="underline text-blue-500" href="mailto:career@abalo.de">career@abalo.de</a></p>
         </div>
 
     </div>

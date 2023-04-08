@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title','Kontaktanfrage')
+@section('title','Kategorien - Abalo')
 @section('head')
 <link rel="stylesheet" href="css/category.css">
 @endsection

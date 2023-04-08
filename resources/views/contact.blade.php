@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title','Kontaktanfrage')
+@section('title','Kontaktanfrage - Abalo')
 @section('head')
 
 @endsection

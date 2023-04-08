@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title','Willkommen bei Abalo')
+@section('title','Home - Abalo')
 @section('head')
     <link rel="stylesheet" href="css/home.css">
 @endsection
