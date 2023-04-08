@@ -50,6 +50,13 @@ document.getElementById('cart-close').onclick = function () {
     document.getElementById('cart').style.visibility = "visible";
 }
 
+document.getElementById('cart-mobile').onclick = function () {
+    document.getElementById('cart').style.visibility = "visible";
+    document.getElementById('nav').innerHTML = "<i class=\"fa-solid fa-bars scale-125\"></i>";
+    document.getElementById('navbar').style.height = "0";
+    document.getElementById('navitems').style.visibility = "hidden";
+}
+
 let slideIndex = 1;
 showSlides(slideIndex);
 

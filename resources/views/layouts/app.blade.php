@@ -104,7 +104,7 @@
                 <a href="/category" class="hover:underline hover:font-bold">Kategorien</a>
             </div>
             <div>
-                <a href="/articles" class="hover:underline hover:font-bold">Artikel</a>
+                <button id="cart-mobile" class="hover:underline hover:font-bold">Warenkorb</button>
             </div>
             <div>
                 <a href="/sell" class="hover:underline hover:font-bold">Verkaufen</a>
@@ -128,7 +128,7 @@
     </div>
 @show
 @section('cart')
-    <div class="w-1/3 bg-gray-300 right-0 absolute h-max z-10 text-center rounded-lg p-2" id="cart">
+    <div class="w-1/3 max-lg:w-full bg-gray-300 right-0 absolute h-max z-10 text-center rounded-lg p-2" id="cart">
         <div class="text-2xl m-auto font-bold relative">Warenkorb <span class="right-0 text-sm absolute font-normal"><button id="cart-close"><i class="fa-solid fa-xmark scale-150"></i></button></span></div>
         <div id="cart-info">
             <input type="hidden" value="empty" id="cart-cond">
@@ -138,9 +138,9 @@
         </div>
         <table id="cart-table">
             <tr class="">
-                <td class="p-5 font-bold ">Artikelname</td>
-                <td class="p-5 font-bold">Preis</td>
-                <td class="p-5 font-bold">Artikel entfernen?</td>
+                <td class="p-5 font-bold max-lg:p-2">Artikelname</td>
+                <td class="p-5 font-bold max-lg:p-2">Preis</td>
+                <td class="p-5 font-bold max-lg:p-2">Artikel entfernen?</td>
             </tr>
         </table>
     </div>
