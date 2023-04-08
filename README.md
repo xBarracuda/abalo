@@ -23,15 +23,19 @@ php artisan key:generate
 ```
 php artisan migrate
 ```
-8. Run the following command to install npm packages:
+8. Run the following command to seed the database with initial data:
+```
+php artisan db::seed --class DevelopmentData
+```
+9. Run the following command to install npm packages:
 ```
 npm install
 ```
-9. Run the following command to compile the front-end assets:
+10. Run the following command to compile the front-end assets:
 ```
 npm run dev
 ```
-10. Start the development server by running the following command:
+11. Start the development server by running the following command:
 ```
 php artisan serve
 ```
