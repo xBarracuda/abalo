@@ -16,7 +16,7 @@
                 @foreach($articles as $a)
                     <div class="card m-10 w-48 bg-gray-400/30" id="{{$a->id}}">
                         <img
-                            src="@if(file_exists('img/'.$a->id.'.png')) {{asset('img/'.$a->id.'.png')}} @elseif(file_exists(('img/'.$a->id.'.jpg'))) {{asset('img/'.$a->id.'.jpg')}} @endif"
+                            src="@if(file_exists('img/'.$a->id.'.png')) {{asset('img/'.$a->id.'.png')}} @elseif(file_exists(('img/'.$a->id.'.jpg'))) {{asset('img/'.$a->id.'.jpg')}} @else {{asset('img/0.png')}} @endif"
                             class="" alt="Avatar">
                         <div class="container">
                             <h4><b>{{$a->ab_name}}</b></h4>
