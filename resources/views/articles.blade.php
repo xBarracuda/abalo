@@ -47,7 +47,8 @@
                                 <i class="fa-solid fa-xmark"></i>
                             </button>
                         </div>
-                        <div class="grid grid-cols-1 gap-2 grid-rows-4 break-words grid-rows-[30%,15%,40%,5%] max-lg:grid-rows-[40%,10%,35%,5%] h-full">
+                        <div
+                            class="grid grid-cols-1 gap-2 grid-rows-4 break-words grid-rows-[30%,15%,40%,5%] max-lg:grid-rows-[40%,10%,35%,5%] h-full">
                             <div class="place-self-center">
                                 <div class="">
                                     <img

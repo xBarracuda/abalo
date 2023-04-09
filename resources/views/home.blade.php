@@ -41,7 +41,8 @@
                     sich jetzt noch mehr.
                 </div>
                 <div class="mt-5">
-                    <button class="border-white border p-2">Kostenlos verkaufen <i class="fa-solid fa-arrow-right"></i></button>
+                    <button class="border-white border p-2">Kostenlos verkaufen <i class="fa-solid fa-arrow-right"></i>
+                    </button>
                 </div>
                 <div class="font-normal text-lg mt-3">
                     Für private Verkäufe
@@ -74,8 +75,12 @@
                     <div class="mt-5">
                         <form method="post" action="/subscribe" id="newsletter">
                             @csrf
-                            <input type="email" name="email" id="newsletter-email" maxlength="60" placeholder="E-Mail Adresse"  class="rounded-lg w-3/4"><br>
-                            <button id="submit-newsletter" type="button" class="mt-5 border border-black text-sm w-1/2 p-2 rounded-lg cursor-pointer bg-white hover:bg-gray-400 hover:transition-all">Kostenlos abonnieren</button>
+                            <input type="email" name="email" id="newsletter-email" maxlength="60"
+                                   placeholder="E-Mail Adresse" class="rounded-lg w-3/4"><br>
+                            <button id="submit-newsletter" type="button"
+                                    class="mt-5 border border-black text-sm w-1/2 p-2 rounded-lg cursor-pointer bg-white hover:bg-gray-400 hover:transition-all">
+                                Kostenlos abonnieren
+                            </button>
                         </form>
                         @if($successMsg)
                             <div class="text-green-500 mt-2">

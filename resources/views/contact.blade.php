@@ -26,10 +26,14 @@
             <div class="my-6">
                 <form method="post" action="/checkContactData">
                     @csrf
-                    <input type="text" class="font-bold w-3/4 my-2" maxlength="60" name="name" placeholder="Ihr Name*" required><br>
-                    <input type="email" class="font-bold w-3/4 my-2" maxlength="60" name="email" placeholder="Ihre E-Mail-Adresse*" required>
+                    <input type="text" class="font-bold w-3/4 my-2" maxlength="60" name="name" placeholder="Ihr Name*"
+                           required><br>
+                    <input type="email" class="font-bold w-3/4 my-2" maxlength="60" name="email"
+                           placeholder="Ihre E-Mail-Adresse*" required>
                     <textarea class="w-full h-40 my-2 font-bold" maxlength="1000" name="text"></textarea>
-                    <input type="checkbox" name="checkbox" class="rounded-sm my-2" id="checkbox" required> <label for="checkbox"><span class="text-sm">Ich akzeptiere die Datenschutzbedingungen*</span></label><br>
+                    <input type="checkbox" name="checkbox" class="rounded-sm my-2" id="checkbox" required> <label
+                        for="checkbox"><span
+                            class="text-sm">Ich akzeptiere die Datenschutzbedingungen*</span></label><br>
                     <input type="submit" value="Senden" class="my-2 border border-blue-900 p-2 cursor-pointer">
                 </form>
                 @if($errMsgContact)

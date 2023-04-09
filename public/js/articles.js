@@ -1,22 +1,19 @@
-for(let i = 0; i < document.getElementsByClassName('addButtons').length; i++)
-{
+for (let i = 0; i < document.getElementsByClassName('addButtons').length; i++) {
     let buttons = document.getElementsByClassName('addButtons');
     let opacity = "0.4";
 
-    buttons[i].addEventListener('click',function () {
+    buttons[i].addEventListener('click', function () {
 
         let arr = buttons[i].value.split('/??/');
 
         const ID = arr[0], ab_name = arr[1], ab_price = arr[2], ab_description = arr[3];
 
         const table = document.getElementById('cart-table');
-        for (let j = 1; j < table.childElementCount; j++)
-        {
-          if (table.children[j].children[2].innerHTML === ID)
-          {
-              buttons[i].disabled = true;
-              return;
-          }
+        for (let j = 1; j < table.childElementCount; j++) {
+            if (table.children[j].children[2].innerHTML === ID) {
+                buttons[i].disabled = true;
+                return;
+            }
         }
 
         document.getElementById(ID).style.opacity = opacity;
@@ -26,19 +23,18 @@ for(let i = 0; i < document.getElementsByClassName('addButtons').length; i++)
         document.getElementById('info_button_' + ID).disabled = true;
 
 
-       document.getElementById('cart-counter').innerHTML = (parseInt(document.getElementById('cart-counter').innerHTML) + 1).toString();
+        document.getElementById('cart-counter').innerHTML = (parseInt(document.getElementById('cart-counter').innerHTML) + 1).toString();
 
-       if (document.getElementById('cart-cond').value === "empty")
-       {
-           document.getElementById('cart-info').style.display = "none";
-           document.getElementById('cart-cond').value = "items";
-           document.getElementById('cart-table').style.display = "initial";
-       }
+        if (document.getElementById('cart-cond').value === "empty") {
+            document.getElementById('cart-info').style.display = "none";
+            document.getElementById('cart-cond').value = "items";
+            document.getElementById('cart-table').style.display = "initial";
+        }
 
 
-       let row = document.createElement('tr');
+        let row = document.createElement('tr');
 
-       let articleName = document.createElement('td');
+        let articleName = document.createElement('td');
         articleName.className = "px-5 py-2 font-bold";
         articleName.innerHTML = ab_name;
         row.appendChild(articleName);
@@ -80,8 +76,7 @@ for(let i = 0; i < document.getElementsByClassName('addButtons').length; i++)
         row.appendChild(id);
         row.appendChild(removeButton);
 
-        if (!document.getElementById('sum'))
-        {
+        if (!document.getElementById('sum')) {
             let sum = document.createElement('p');
             sum.innerHTML = "Gesamtpreis: ";
             sum.className = "font-bold text-2xl m-3";
@@ -96,22 +91,20 @@ for(let i = 0; i < document.getElementsByClassName('addButtons').length; i++)
 
 function setSum() {
     let sum = 0;
-    for (let i = 1; i < document.getElementById('cart-table').childElementCount; i++)
-    {
-        sum += parseInt(document.getElementById('cart-table').children[i].children[1].innerHTML.replace('€',''));
+    for (let i = 1; i < document.getElementById('cart-table').childElementCount; i++) {
+        sum += parseInt(document.getElementById('cart-table').children[i].children[1].innerHTML.replace('€', ''));
     }
-    document.getElementById('sum').innerHTML = "Gesamtpreis: " +  sum.toFixed(2) + "€";
+    document.getElementById('sum').innerHTML = "Gesamtpreis: " + sum.toFixed(2) + "€";
 }
 
-for (let i = 0; i < document.getElementsByClassName('info_buttons').length; i++)
-{
-    document.getElementsByClassName('info_buttons')[i].addEventListener('click',function () {
-       let arr = document.getElementsByClassName('info_buttons')[i].value.split('/??/');
+for (let i = 0; i < document.getElementsByClassName('info_buttons').length; i++) {
+    document.getElementsByClassName('info_buttons')[i].addEventListener('click', function () {
+        let arr = document.getElementsByClassName('info_buttons')[i].value.split('/??/');
         const ID = arr[0], ab_name = arr[1], ab_price = arr[2], ab_description = arr[3];
 
-       document.getElementById('info_' + ID).style.display = "initial";
+        document.getElementById('info_' + ID).style.display = "initial";
 
-        document.getElementById('info_close_' + ID).addEventListener('click',function () {
+        document.getElementById('info_close_' + ID).addEventListener('click', function () {
             document.getElementById('info_' + ID).style.display = "none";
         });
     });

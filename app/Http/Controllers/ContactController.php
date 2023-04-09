@@ -14,7 +14,7 @@ class ContactController extends Controller
     {
         $errMsgContact = session()->pull('errMsgContact') ?? NULL;
         $successMsgContact = session()->pull('successMsgContact') ?? NULL;
-        return view('contact',[
+        return view('contact', [
             'errMsgContact' => $errMsgContact,
             'successMsgContact' => $successMsgContact,
         ]);
@@ -27,29 +27,25 @@ class ContactController extends Controller
         $text = $request->input('text');
         $checkbox = $request->input('checkbox');
 
-        if (empty($name) || empty($useremail) || empty($checkbox))
-        {
+        if (empty($name) || empty($useremail) || empty($checkbox)) {
             $errMsgContact = "Bei der Verarbeitung Ihrer Anfrage ist ein Fehler aufgetreten.";
-            session()->put('errMsgContact',$errMsgContact);
-            return redirect()->action([ContactController::class,'show']);
+            session()->put('errMsgContact', $errMsgContact);
+            return redirect()->action([ContactController::class, 'show']);
         }
-        if (!filter_var($useremail,FILTER_VALIDATE_EMAIL))
-        {
+        if (!filter_var($useremail, FILTER_VALIDATE_EMAIL)) {
             $errMsgContact = "Bitte geben Sie eine gueltige E-Mail-Adresse ein.";
-            session()->put('errMsgContact',$errMsgContact);
-            return redirect()->action([ContactController::class,'show']);
+            session()->put('errMsgContact', $errMsgContact);
+            return redirect()->action([ContactController::class, 'show']);
         }
-        if (strlen($name) > 60 || strlen($useremail) > 60)
-        {
+        if (strlen($name) > 60 || strlen($useremail) > 60) {
             $errMsgContact = "Ihr Name und E-Mail-Adresse darf nur 60 Zeichen lang sein.";
-            session()->put('errMsgContact',$errMsgContact);
-            return redirect()->action([ContactController::class,'show']);
+            session()->put('errMsgContact', $errMsgContact);
+            return redirect()->action([ContactController::class, 'show']);
         }
-        if (strlen($text) > 1000)
-        {
+        if (strlen($text) > 1000) {
             $errMsgContact = "Ihr Text darf nur 1000 Zeichen lang sein.";
-            session()->put('errMsgContact',$errMsgContact);
-            return redirect()->action([ContactController::class,'show']);
+            session()->put('errMsgContact', $errMsgContact);
+            return redirect()->action([ContactController::class, 'show']);
         }
 
         $transport = Transport::fromDsn('null://localhost');
@@ -68,7 +64,7 @@ class ContactController extends Controller
         $contact->save();
 
         $successMsgContact = "Vielen Dank. Wir werden Ihre Anfrage schnellstmöglich bearbeiten.";
-        session()->put('successMsgContact',$successMsgContact);
-        return redirect()->action([ContactController::class,'show']);
+        session()->put('successMsgContact', $successMsgContact);
+        return redirect()->action([ContactController::class, 'show']);
     }
 }

@@ -12,27 +12,29 @@ use Illuminate\Http\Request;
  */
 class AuthController extends Controller
 {
-    public function login(Request $request) {
+    public function login(Request $request)
+    {
         $request->session()->put('abalo_user', 'visitor');
         $request->session()->put('abalo_mail', 'visitor@abalo.example.com');
         $request->session()->put('abalo_time', time());
-        return redirect()->action([HomeController::class,'index']);
+        return redirect()->action([HomeController::class, 'index']);
     }
 
-    public function logout(Request $request) {
+    public function logout(Request $request)
+    {
         $request->session()->flush();
-        return redirect()->action([HomeController::class,'index']);
+        return redirect()->action([HomeController::class, 'index']);
     }
 
 
-    public function isLoggedIn(Request $request) {
-        if($request->session()->has('abalo_user')) {
+    public function isLoggedIn(Request $request)
+    {
+        if ($request->session()->has('abalo_user')) {
             $r["user"] = $request->session()->get('abalo_user');
             $r["time"] = $request->session()->get('abalo_time');
             $r["mail"] = $request->session()->get('abalo_mail');
             $r["auth"] = "true";
-        }
-        else $r["auth"]="false";
+        } else $r["auth"] = "false";
         return response()->json($r);
     }
 }

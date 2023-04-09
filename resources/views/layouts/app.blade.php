@@ -61,7 +61,8 @@
                         <button onclick="searchbar()"><i class="fa-solid fa-magnifying-glass"></i></button>
                     </div>
                     <div class="mt-8">
-                        <button id="cart-icon" class=""><i class="fa-solid fa-cart-shopping"></i> <span id="cart-counter" class="border border-black rounded-full p-0.5">0</span></button>
+                        <button id="cart-icon" class=""><i class="fa-solid fa-cart-shopping"></i> <span
+                                id="cart-counter" class="border border-black rounded-full p-0.5">0</span></button>
                     </div>
                     <div class="mt-8">
                         @if(!session()->has('abalo_user'))
@@ -129,7 +130,8 @@
 @show
 @section('cart')
     <div class="w-1/3 max-lg:w-full bg-gray-300 right-0 absolute h-max z-10 text-center rounded-lg p-2" id="cart">
-        <div class="text-2xl m-auto font-bold relative">Warenkorb <span class="right-0 text-sm absolute font-normal"><button id="cart-close"><i class="fa-solid fa-xmark scale-150"></i></button></span></div>
+        <div class="text-2xl m-auto font-bold relative">Warenkorb <span class="right-0 text-sm absolute font-normal"><button
+                    id="cart-close"><i class="fa-solid fa-xmark scale-150"></i></button></span></div>
         <div id="cart-info">
             <input type="hidden" value="empty" id="cart-cond">
             Ihr Warenkorb ist zurzeit leer.

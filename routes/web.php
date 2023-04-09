@@ -13,18 +13,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/',[\App\Http\Controllers\HomeController::class,'index'])->name('home');
-Route::post('/subscribe',[\App\Http\Controllers\HomeController::class,'subscribe']);
+Route::get('/', [\App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::post('/subscribe', [\App\Http\Controllers\HomeController::class, 'subscribe']);
 
-Route::get('/articles/{id?}',[\App\Http\Controllers\ArticleController::class,'show'])->name('articles');
+Route::get('/articles/{id?}', [\App\Http\Controllers\ArticleController::class, 'show'])->name('articles');
 
 
-Route::get('/contact',[\App\Http\Controllers\ContactController::class,'show'])->name('contact');
-Route::post('/checkContactData',[\App\Http\Controllers\ContactController::class,'checkContactData']);
+Route::get('/contact', [\App\Http\Controllers\ContactController::class, 'show'])->name('contact');
+Route::post('/checkContactData', [\App\Http\Controllers\ContactController::class, 'checkContactData']);
 
-Route::get('/category',[\App\Http\Controllers\CategoryController::class,'show'])->name('category');
+Route::get('/category', [\App\Http\Controllers\CategoryController::class, 'show'])->name('category');
 
-Route::get('about',[\App\Http\Controllers\AboutController::class,'show'])->name('about');
+Route::get('about', [\App\Http\Controllers\AboutController::class, 'show'])->name('about');
 
 Route::get('/login', [App\Http\Controllers\AuthController::class, 'login'])->name('login');
 Route::get('/logout', [App\Http\Controllers\AuthController::class, 'logout'])->name('logout');

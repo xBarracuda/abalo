@@ -10,8 +10,7 @@ const validateEmail = (email) => {
 document.getElementById('submit-newsletter').onclick = function () {
     let email = document.getElementById('newsletter-email').value;
 
-    if (!validateEmail(email))
-    {
+    if (!validateEmail(email)) {
         if (document.getElementById('errMsg')) {
             return;
         }
