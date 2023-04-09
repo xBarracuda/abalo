@@ -60,7 +60,6 @@ for(let i = 0; i < document.getElementsByClassName('addButtons').length; i++)
         remove.addEventListener('click', function () {
             document.getElementById(ID).style.opacity = "1";
 
-
             document.getElementById('info_button_' + ID).style.opacity = "1";
             document.getElementById('info_button_' + ID).disabled = false;
             document.getElementById('add_button_' + ID).disabled = false;

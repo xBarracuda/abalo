@@ -41,13 +41,13 @@
                         </button>
                     </div>
                     <div id="info_{{$a->id}}"
-                         class="abalo_info info p-4 text-center rounded-xl w-1/3 h-3/4 bg-gray-200 fixed z-20">
+                         class="abalo_info info p-4 max-lg:p-0 text-center rounded-xl max-lg:w-3/4 max-lg:w-3/4 w-1/3 h-3/4 bg-gray-200 fixed z-20">
                         <div class="absolute right-0 mr-4">
                             <button id="info_close_{{$a->id}}">
                                 <i class="fa-solid fa-xmark"></i>
                             </button>
                         </div>
-                        <div class="grid grid-cols-1 gap-2 grid-rows-4 break-words grid-rows-[30%,15%,40%,5%] h-full">
+                        <div class="grid grid-cols-1 gap-2 grid-rows-4 break-words grid-rows-[30%,15%,40%,5%] max-lg:grid-rows-[40%,10%,35%,5%] h-full">
                             <div class="place-self-center">
                                 <div class="">
                                     <img
@@ -55,13 +55,13 @@
                                         class="" alt="{{$a->ab_name}}">
                                 </div>
                             </div>
-                            <div class="font-bold text-xl">
+                            <div class="font-bold text-xl max-lg:text-sm">
                                 {{$a->ab_name}}
                                 <div>
                                     {{number_format($a->ab_price,2)}}€
                                 </div>
                             </div>
-                            <div>
+                            <div class="max-lg:text-xs">
                                 {{$a->ab_description}}
                             </div>
                             <div>
