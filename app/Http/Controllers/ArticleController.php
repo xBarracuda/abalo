@@ -14,7 +14,8 @@ class ArticleController extends BaseController
     public function show(Request $request, string $id = NULL)
     {
         if ($id) {
-            $a = Article::query()->select(['ab_article.id', 'ab_article.ab_name', 'ab_article.ab_price', 'ab_article.ab_description', 'ab_article.ab_creator_id', 'ab_article.ab_createdate'])
+            $a = Article::query()
+                ->select(['ab_article.id', 'ab_article.ab_name', 'ab_article.ab_price', 'ab_article.ab_description', 'ab_article.ab_creator_id', 'ab_article.ab_createdate'])
                 ->join('ab_article_has_articlecategory', 'ab_article.id', '=', 'ab_article_has_articlecategory.ab_article_id')
                 ->where('ab_article_has_articlecategory.ab_articlecategory_id', '=', $id)
                 ->get();

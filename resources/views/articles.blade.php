@@ -30,7 +30,7 @@
                         <button class="addButtons" id="add_button_{{$a->id}}"
                                 value="{{$a->id}}/??/{{$a->ab_name}}/??/{{$a->ab_price}}/??/{{$a->ab_description}}">
                             <div
-                                class=" rounded-lg bg-green-400/90 p-1 grid grid-cols-2 grid-cols-[20%,80%] divide-x divide-black gap-2">
+                                class=" rounded-lg bg-green-400/90 border border-black p-1 grid grid-cols-2 grid-cols-[20%,80%] divide-x divide-black gap-2">
                                 <div class="self-center border border-black rounded-full p-1"><i
                                         class="fa-solid fa-cart-plus"></i>
                                 </div>
@@ -62,14 +62,14 @@
                                     {{number_format($a->ab_price,2)}}€
                                 </div>
                             </div>
-                            <div class="max-lg:text-xs">
+                            <div class="max-lg:text-xs text-sm">
                                 {{$a->ab_description}}
                             </div>
                             <div>
                                 <button class="addButtons" id="info_button_{{$a->id}}"
                                         value="{{$a->id}}/??/{{$a->ab_name}}/??/{{$a->ab_price}}/??/{{$a->ab_description}}">
                                     <div
-                                        class=" rounded-lg bg-green-400/90 p-1 grid grid-cols-2 grid-cols-[20%,80%] divide-x divide-black gap-2">
+                                        class=" rounded-xl border border-black bg-green-400/90 p-1 grid grid-cols-2 grid-cols-[20%,80%] divide-x divide-black gap-2">
                                         <div class="self-center border border-black rounded-full p-1"><i
                                                 class="fa-solid fa-cart-plus"></i>
                                         </div>
