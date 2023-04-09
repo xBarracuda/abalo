@@ -14,36 +14,39 @@ Our marketplace features a range of products, from electronics to fashion, and a
 
 ## Steps
 1. Clone the repository to your local machine.
-2. Open the terminal/command prompt and navigate to the project directory.
+2. Open the terminal/command prompt and navigate to the project directory;
+```
+$ cd abalo
+```
 3. Run the following command to install the required dependencies:
 ```
-composer install
+$ composer install
 ```
 4. Change the .env.example file to .env and configure the environment variables as per your requirements.
 5. Generate an application key by running the following command:
 ```
-php artisan key:generate
+$ php artisan key:generate
 ```
 6. Create a database for your Laravel application and update the .env file with the database credentials.
 7. Run the following command to run any pending migrations:
 ```
-php artisan migrate
+$ php artisan migrate
 ```
 8. Run the following command to seed the database with initial data:
 ```
-php artisan db::seed --class DevelopmentData
+$ php artisan db::seed --class DevelopmentData
 ```
 9. Run the following command to install npm packages:
 ```
-npm install
+$ npm install
 ```
 10. Run the following command to compile the front-end assets:
 ```
-npm run dev
+$ npm run dev
 ```
 11. Start the development server by running the following command:
 ```
-php artisan serve
+$ php artisan serve
 ```
 
 ## Note
