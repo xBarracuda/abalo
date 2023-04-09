@@ -141,6 +141,7 @@
                 <td class="p-5 font-bold max-lg:p-2">Artikelname</td>
                 <td class="p-5 font-bold max-lg:p-2">Preis</td>
                 <td class="p-5 font-bold max-lg:p-2">Artikel entfernen?</td>
+                <td hidden>ID</td>
             </tr>
         </table>
     </div>
@@ -288,7 +289,7 @@
 
 @section('cookie-consent')
     <div id="cookie-consent"
-         class="fixed text-white w-full h-1/6 bg-black bottom-0 text-center text-sm max-xl:h-1/3 max-sm:h-1/2 opacity-90 z-10">
+         class="fixed text-white w-full h-1/6 bg-black bottom-0 text-center text-sm max-xl:h-1/3 max-sm:h-1/2 opacity-90 z-50">
         <p class="my-2">Gemäß der Datenschutz-Grundverordnung (DSGVO) sind wir verpflichtet, Sie darüber zu informieren,
             dass diese Website Cookies verwendet.
             Wir möchten Ihnen die Möglichkeit geben, selbst zu entscheiden, ob Sie der Verwendung von Cookies zustimmen

@@ -1,18 +1,31 @@
 for(let i = 0; i < document.getElementsByClassName('addButtons').length; i++)
 {
     let buttons = document.getElementsByClassName('addButtons');
-    let addedToCart = false;
+    let opacity = "0.4";
+
     buttons[i].addEventListener('click',function () {
 
         let arr = buttons[i].value.split('/??/');
-        if (addedToCart)
+
+        const ID = arr[0], ab_name = arr[1], ab_price = arr[2], ab_description = arr[3];
+
+        const table = document.getElementById('cart-table');
+        for (let j = 1; j < table.childElementCount; j++)
         {
-            buttons[i].disabled = true;
-            return;
+          if (table.children[j].children[2].innerHTML === ID)
+          {
+              buttons[i].disabled = true;
+              return;
+          }
         }
-       document.getElementById(arr[0]).style.opacity = "0.4";
-       buttons[i].disabled = true;
-       addedToCart = true;
+
+        document.getElementById(ID).style.opacity = opacity;
+        document.getElementById('add_button_' + ID).disabled = true;
+
+        document.getElementById('info_button_' + ID).style.opacity = opacity;
+        document.getElementById('info_button_' + ID).disabled = true;
+
+
        document.getElementById('cart-counter').innerHTML = (parseInt(document.getElementById('cart-counter').innerHTML) + 1).toString();
 
        if (document.getElementById('cart-cond').value === "empty")
@@ -27,24 +40,33 @@ for(let i = 0; i < document.getElementsByClassName('addButtons').length; i++)
 
        let articleName = document.createElement('td');
         articleName.className = "px-5 py-2 font-bold";
-        articleName.innerHTML = arr[1];
+        articleName.innerHTML = ab_name;
         row.appendChild(articleName);
 
         let articlePrice = document.createElement('td');
         articlePrice.className = "px-5 py-2";
-        articlePrice.innerHTML = arr[2] + "€";
+        articlePrice.innerHTML = ab_price + "€";
         row.appendChild(articlePrice);
+
+        let id = document.createElement('td');
+        id.innerHTML = ID;
+        id.hidden = true;
 
         let removeButton = document.createElement('td');
         let remove = document.createElement('button');
         remove.innerHTML = "<i class=\"fa-solid fa-xmark\"></i>";
-        remove.value = arr[0]; // ID vom Artikel
         remove.className = "removeButtons py-2 px-5";
+
         remove.addEventListener('click', function () {
-            document.getElementById(arr[0]).style.opacity = "1";
-            buttons[i].disabled = false;
-            addedToCart = false;
+            document.getElementById(ID).style.opacity = "1";
+
+
+            document.getElementById('info_button_' + ID).style.opacity = "1";
+            document.getElementById('info_button_' + ID).disabled = false;
+            document.getElementById('add_button_' + ID).disabled = false;
+
             document.getElementById('cart-counter').innerHTML = (parseInt(document.getElementById('cart-counter').innerHTML) - 1).toString();
+
             remove.parentElement.parentElement.remove();
             if (document.getElementById('cart-table').childElementCount === 1) {
                 document.getElementById('cart-info').style.display = "initial";
@@ -56,6 +78,7 @@ for(let i = 0; i < document.getElementsByClassName('addButtons').length; i++)
         });
 
         removeButton.appendChild(remove);
+        row.appendChild(id);
         row.appendChild(removeButton);
 
         if (!document.getElementById('sum'))
@@ -80,5 +103,22 @@ function setSum() {
     }
     document.getElementById('sum').innerHTML = "Gesamtpreis: " +  sum.toFixed(2) + "€";
 }
+
+for (let i = 0; i < document.getElementsByClassName('info_buttons').length; i++)
+{
+    document.getElementsByClassName('info_buttons')[i].addEventListener('click',function () {
+       let arr = document.getElementsByClassName('info_buttons')[i].value.split('/??/');
+        const ID = arr[0], ab_name = arr[1], ab_price = arr[2], ab_description = arr[3];
+
+       document.getElementById('info_' + ID).style.display = "initial";
+
+        document.getElementById('info_close_' + ID).addEventListener('click',function () {
+            document.getElementById('info_' + ID).style.display = "none";
+        });
+    });
+
+}
+
+
 
 
