@@ -10,6 +10,7 @@
     <script src="https://unpkg.com/flowbite@1.5.5/dist/flowbite.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="/css/app.css">
+    <link rel="icon" href="{{asset('img/abalo-logos.png')}}">
     @yield('head')
     @vite('resources/css/app.css')
 </head>

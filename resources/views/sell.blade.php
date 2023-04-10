@@ -92,7 +92,7 @@
         gridContainer.appendChild(priceError);
 
         let description = document.createElement('label');
-        description.innerHTML = "Beschreibung";
+        description.innerHTML = "Beschreibung*";
         description.htmlFor = "description";
         description.className = "";
         gridContainer.appendChild(description);
