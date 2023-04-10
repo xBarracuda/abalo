@@ -76,7 +76,7 @@ class ArticleController extends BaseController
         $successMsg = "Ihr Artikel wurde erfolgreich eingestellt!";
         session()->put('successMsg',$successMsg);
 
-        if ($request->file('img')->extension() == 'jpg' || $request->file('img')->extension() == "png" || $request->file('img')->getSize() < 5000)
+        if (($request->file('img')->extension() == 'jpg' || $request->file('img')->extension() == "png") && $request->file('img')->getSize() < 1.2e+7)
         {
             $maxID = Article::query()->selectRaw("MAX(id)")->get();
             $currentId = $maxID[0]->max;
