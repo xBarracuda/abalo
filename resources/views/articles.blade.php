@@ -25,7 +25,7 @@
                 @foreach($articles as $a)
                     <div class="card m-10 w-48 bg-gray-400/30 p-5 abalo_article" id="{{$a->id}}">
                         <img
-                            src="@if(file_exists('img/'.$a->id.'.png')) {{asset('img/'.$a->id.'.png')}} @elseif(file_exists(('img/'.$a->id.'.jpg'))) {{asset('img/'.$a->id.'.jpg')}} @else {{asset('img/0.png')}} @endif"
+                            src="@if(file_exists('img/'.$a->id.'.png')) {{asset('img/'.$a->id.'.png')}} @elseif(file_exists(('img/'.$a->id.'.jpg'))) {{asset('img/'.$a->id.'.jpg')}} @elseif(file_exists(('img/'.trim($a->ab_name).'.jpg'))) {{asset('img/'.$a->ab_name.'.jpg')}} @elseif(file_exists(('img/'.trim($a->ab_name).'.png'))) {{asset('img/'.$a->ab_name.'.png')}} @else {{asset('img/0.png')}} @endif"
                             class="" alt="{{$a->ab_name}}">
                         <div class="container">
                             <h4 class="h-10"><b>{{$a->ab_name}}</b></h4>
@@ -61,7 +61,7 @@
                             <div class="place-self-center">
                                 <div class="">
                                     <img
-                                        src="@if(file_exists('img/'.$a->id.'.png')) {{asset('img/'.$a->id.'.png')}} @elseif(file_exists(('img/'.$a->id.'.jpg'))) {{asset('img/'.$a->id.'.jpg')}} @else {{asset('img/0.png')}} @endif"
+                                        src="@if(file_exists('img/'.$a->id.'.png')) {{asset('img/'.$a->id.'.png')}} @elseif(file_exists(('img/'.$a->id.'.jpg'))) {{asset('img/'.$a->id.'.jpg')}} @elseif(file_exists(('img/'.trim($a->ab_name).'.jpg'))) {{asset('img/'.$a->ab_name.'.jpg')}} @elseif(file_exists(('img/'.trim($a->ab_name).'.png'))) {{asset('img/'.$a->ab_name.'.png')}} @else {{asset('img/0.png')}} @endif"
                                         class="" alt="{{$a->ab_name}}">
                                 </div>
                             </div>

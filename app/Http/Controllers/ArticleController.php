@@ -7,6 +7,8 @@ use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller as BaseController;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 use Psr\Log\NullLogger;
 
 class ArticleController extends BaseController
@@ -73,6 +75,34 @@ class ArticleController extends BaseController
 
         $successMsg = "Ihr Artikel wurde erfolgreich eingestellt!";
         session()->put('successMsg',$successMsg);
+
+        if ($request->file('img')->extension() == 'jpg' || $request->file('img')->extension() == "png" || $request->file('img')->getSize() < 5000)
+        {
+            $maxID = Article::query()->selectRaw("MAX(id)")->get();
+            $currentId = $maxID[0]->max;
+
+            $request->file('img')->storeAs('/useruploads',$currentId . '.' . $request->file('img')->extension());
+            $image = NULL;
+            if ($request->file('img')->extension() == "png")
+            {
+                $image = imagecreatefrompng(storage_path(). '/app/useruploads/' . $currentId . '.' . $request->file('img')->extension());
+            }
+            else if ($request->file('img')->extension() == "jpg")
+            {
+                $image = imagecreatefromjpeg(storage_path(). '/app/useruploads/' . $currentId . '.' . $request->file('img')->extension());
+            }
+
+            $imgResized = imagescale($image,200,200);
+
+            if ($request->file('img')->extension() == "png")
+            {
+                imagepng($imgResized,public_path(). '/img/' . $currentId . '.' . $request->file('img')->extension());
+            }
+            else if ($request->file('img')->extension() == "jpg")
+            {
+                imagejpeg($imgResized,public_path(). '/img/' . $currentId . '.' . $request->file('img')->extension());
+            }
+        }
 
         $allarticles = Article::all();
         return view('articles', [

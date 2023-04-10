@@ -25,6 +25,7 @@
         gridContainer.method = "post";
         gridContainer.action = "/articles";
         gridContainer.id = "newarticle";
+        gridContainer.enctype = "multipart/form-data";
         container.appendChild(gridContainer);
 
         let csrf = document.createElement('input');
@@ -107,6 +108,25 @@
         descriptionInfo.innerHTML = "Bitte nutze hier max. 1000 Zeichen"
         descriptionInfo.className = "text-xs italic my-auto ml-5";
         gridContainer.appendChild(descriptionInfo);
+
+        let image = document.createElement('label');
+        image.htmlFor = "img";
+        image.innerHTML = "Bild (empfohlen)";
+        image.className = "my-auto";
+        gridContainer.appendChild(image);
+
+        let imageInput = document.createElement('input');
+        imageInput.type = "file";
+        imageInput.id = "img";
+        imageInput.name = "img";
+        imageInput.className = "";
+        imageInput.accept = "image/png, image/jpg";
+        gridContainer.appendChild(imageInput);
+
+        let imageInfo = document.createElement('div');
+        imageInfo.innerHTML = "Bitte laden Sie nur .png oder .jpg Bilder hoch"
+        imageInfo.className = "text-xs italic my-auto ml-5";
+        gridContainer.appendChild(imageInfo);
 
         let placeholder2 = document.createElement('div');
         gridContainer.appendChild(placeholder2);
