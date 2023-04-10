@@ -105,7 +105,7 @@
         gridContainer.appendChild(descriptionInput);
 
         let descriptionInfo = document.createElement('div');
-        descriptionInfo.innerHTML = "Bitte nutze hier max. 1000 Zeichen"
+        descriptionInfo.innerHTML = "Bitte nutzen Sie hier max. 1000 Zeichen"
         descriptionInfo.className = "text-xs italic my-auto ml-5";
         gridContainer.appendChild(descriptionInfo);
 
@@ -124,7 +124,7 @@
         gridContainer.appendChild(imageInput);
 
         let imageInfo = document.createElement('div');
-        imageInfo.innerHTML = "Bitte laden Sie nur .png oder .jpg Bilder hoch"
+        imageInfo.innerHTML = "Bitte laden Sie nur .png oder .jpg Bilder hoch mit einer max. Größe von 12MB"
         imageInfo.className = "text-xs italic my-auto ml-5";
         gridContainer.appendChild(imageInfo);
 
