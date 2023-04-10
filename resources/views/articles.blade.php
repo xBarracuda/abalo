@@ -10,6 +10,15 @@
 @endsection
 
 @section('main')
+@if(session()->has('errMsgArticle'))
+    <div class="text-red-500 text-center w-full">
+        {{session()->pull('errMsgArticle')}}
+    </div>
+@elseif(session()->has('successMsg'))
+    <div class="text-green-500 text-center w-full">
+        {{session()->pull('successMsg')}}
+    </div>
+@endif
     <div class="text-center my-5">
         @if($articles && count($articles) != 0)
             <div class="flex justify-evenly flex-wrap">

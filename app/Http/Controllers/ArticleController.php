@@ -30,8 +30,53 @@ class ArticleController extends BaseController
         }
         $search = strtolower($request->input('search'));
         $articles = Article::query()->whereRaw('LOWER(ab_name) LIKE ?', ['%' . $search . '%'])->get();
+
         return view('articles', [
             'articles' => $articles,
+        ]);
+    }
+
+    public function sell(Request $request)
+    {
+        if (!session()->has('abalo_user'))
+        {
+            return redirect()->action([AuthController::class,'login']);
+        }
+        return view('sell');
+    }
+
+    public function verifyArticle(Request $request)
+    {
+        $name = $request->input('name');
+        $price = $request->input('price');
+        $description = $request->input('description');
+
+
+        $pattern = '/[\'^£$%&*()}{@#~?><>,|=_+¬-]/';
+
+        if (empty($name) || strlen($name) > 60 || preg_match($pattern,$name) || empty($price) || !is_numeric($price) || $price <= 0 || strlen($description) > 1000 || str_contains($description, '??') || empty($description))
+        {
+            $errMsg = "Es ist ein Fehler aufgetreten. Bitte korrigieren Sie Ihre Eingaben und verwenden Sie keine Sonderzeichen.";
+            session()->put('errMsgArticle',$errMsg);
+            $allarticles = Article::all();
+            return view('articles', [
+                'articles' => $allarticles,
+            ]);
+        }
+        $article = new Article();
+        $article->ab_name = $name;
+        $article->ab_price = $price;
+        $article->ab_description = $description;
+        $article->ab_creator_id = session()->get('abalo_id');
+        $article->ab_createdate = date('Y-m-d H:i:s');
+        $article->save();
+
+        $successMsg = "Ihr Artikel wurde erfolgreich eingestellt!";
+        session()->put('successMsg',$successMsg);
+
+        $allarticles = Article::all();
+        return view('articles', [
+            'articles' => $allarticles,
         ]);
     }
 }

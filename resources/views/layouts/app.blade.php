@@ -15,7 +15,7 @@
 </head>
 <body class="font-mono" onload="init()">
 @section('header')
-    <header>
+    <header id="header">
         <div class="w-full mb-5 h-34 bg-gray-300/50 grid grid-cols-2 grid-cols-[20%,80%]">
             <div>
                 <a href="/"><img src="{{asset('img/abalo-logos.png')}}" width="80" class=" mx-auto"></a>
@@ -35,7 +35,7 @@
                            class="hover:underline @if(\Illuminate\Support\Facades\Route::getCurrentRoute()->getName() == 'articles') underline decoration-1 font-bold @endif hover:font-bold">Artikel</a>
                     </div>
                     <div class="mt-8">
-                        <a href="/sell"
+                        <a href="/newarticle"
                            class="hover:underline @if(\Illuminate\Support\Facades\Route::getCurrentRoute()->getName() == 'sell') underline decoration-1 font-bold @endif hover:font-bold">Verkaufen</a>
                     </div>
                     <div class="mt-8 relative" id="about">
@@ -148,7 +148,7 @@
         </table>
     </div>
 @show
-<main>
+<main id="main">
     @yield('main')
 </main>
 

@@ -14,9 +14,11 @@ class AuthController extends Controller
 {
     public function login(Request $request)
     {
+        $user = User::query()->select('ab_user.id')->where('ab_mail','=','visitor@abalo.example.com')->get();
         $request->session()->put('abalo_user', 'visitor');
         $request->session()->put('abalo_mail', 'visitor@abalo.example.com');
         $request->session()->put('abalo_time', time());
+        $request->session()->put('abalo_id',$user[0]->id);
         return redirect()->action([HomeController::class, 'index']);
     }
 
