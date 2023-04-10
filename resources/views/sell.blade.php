@@ -12,7 +12,7 @@
 @section('main')
     <script>
         let container = document.createElement('div');
-        container.className = "w-1/2 h-full mx-auto p-2 bg-gray-300";
+        container.className = "w-3/4 h-full max-xl:w-full max-xl:text-sm mx-auto p-5 bg-gray-300 rounded-lg";
         document.getElementById('main').appendChild(container);
 
         let header = document.createElement('h2');
@@ -21,7 +21,7 @@
         container.appendChild(header);
 
         let gridContainer = document.createElement('form');
-        gridContainer.className = "grid grid-cols-3 my-5 grid-cols-[15%,60%,25%] gap-y-16";
+        gridContainer.className = "grid grid-cols-3 my-5 grid-cols-[15%,60%,25%]  gap-y-16 break-words";
         gridContainer.method = "post";
         gridContainer.action = "/articles";
         gridContainer.id = "newarticle";
@@ -44,7 +44,7 @@
         titleInput.type = "text";
         titleInput.name = "name";
         titleInput.id = "name";
-        titleInput.className = "rounded-lg w-full"
+        titleInput.className = "rounded-lg w-full placeholder:opacity-0"
         titleInput.placeholder = "Name des Artikels"
         gridContainer.appendChild(titleInput);
 
@@ -68,7 +68,7 @@
         priceInput.name = "price";
         priceInput.id = "price";
         priceInput.placeholder = "EUR";
-        priceInput.className = "rounded-lg w-1/4"
+        priceInput.className = "rounded-lg w-1/4 placeholder:opacity-0"
         priceFlex.appendChild(priceInput);
 
         let priceInfo = document.createElement('div');
@@ -119,7 +119,7 @@
         imageInput.type = "file";
         imageInput.id = "img";
         imageInput.name = "img";
-        imageInput.className = "";
+        imageInput.className = "my-auto";
         imageInput.accept = "image/png, image/jpg";
         gridContainer.appendChild(imageInput);
 

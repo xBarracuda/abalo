@@ -109,7 +109,7 @@
                 <button id="cart-mobile" class="hover:underline hover:font-bold">Warenkorb</button>
             </div>
             <div>
-                <a href="/sell" class="hover:underline hover:font-bold">Verkaufen</a>
+                <a href="/newarticle" class="hover:underline hover:font-bold">Verkaufen</a>
             </div>
             <div>
                 <a href="/about" class="hover:underline hover:font-bold">Unternehmen</a>
