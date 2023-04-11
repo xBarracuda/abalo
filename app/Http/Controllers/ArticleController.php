@@ -73,6 +73,7 @@ class ArticleController extends BaseController
         }
 
         DB::beginTransaction();
+
         $article = new Article();
         $article->ab_name = $name;
         $article->ab_price = $price;
@@ -93,12 +94,15 @@ class ArticleController extends BaseController
             $c->save();
             $successMsg = "Ihr Artikel wurde erfolgreich eingestellt!";
             session()->put('successMsg',$successMsg);
+
             DB::commit();
         } catch (ModelNotFoundException $exception)
         {
-            $errMsg = "Es ist ein Fehler aufgetreten. Bitte korrigieren Sie Ihre Eingaben und verwenden Sie keine Sonderzeichen.";
+            $errMsg = "Es ist ein Fehler aufgetreten. Bitte korrigieren Sie Ihre Kategorie.";
             session()->put('errMsgArticle',$errMsg);
+
             DB::rollBack();
+
             $allarticles = Article::all();
             return view('articles', [
                 'articles' => $allarticles,
