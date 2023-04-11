@@ -53,6 +53,39 @@
         titleError.className = "text-xs italic my-auto ml-5";
         gridContainer.appendChild(titleError);
 
+        let category = document.createElement('label');
+        category.htmlFor = "category";
+        category.innerHTML = "Kategorie*";
+        category.className = "my-auto";
+        gridContainer.appendChild(category);
+
+        let categoryInput = document.createElement('select');
+        categoryInput.className = "indent-2 font-bold w-1/2 py-2"
+        categoryInput.name = "category";
+        categoryInput.id = "category";
+        gridContainer.appendChild(categoryInput);
+
+        let categories = [
+                @foreach($category as $c)
+                @if($c->ab_parent == null)
+                @continue
+                @endif
+            [ "{!! $c->ab_name !!}", " {{$c->id}}"],
+            @endforeach
+        ];
+
+        for (let element of categories)
+        {
+            var option = document.createElement('option');
+            option.innerHTML = element[0];
+            option.value = element[1];
+            categoryInput.appendChild(option);
+        }
+
+
+        let placeholder4 = document.createElement('div');
+        gridContainer.appendChild(placeholder4);
+
         let price = document.createElement('label');
         price.innerHTML = "Preis*";
         price.htmlFor = "price";

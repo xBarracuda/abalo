@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Article;
+use App\Models\Article_has_articlecategory;
+use App\Models\Articlecategory;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Http\Request;
@@ -44,7 +47,10 @@ class ArticleController extends BaseController
         {
             return redirect()->action([AuthController::class,'login']);
         }
-        return view('sell');
+        $category = Articlecategory::all();
+        return view('sell', [
+            'category' => $category
+        ]);
     }
 
     public function verifyArticle(Request $request)
@@ -52,7 +58,7 @@ class ArticleController extends BaseController
         $name = $request->input('name');
         $price = $request->input('price');
         $description = $request->input('description');
-
+        $categoryID = $request->input('category');
 
         $pattern = '/[\'^£$%&*()}{@#~?><>,|=_+¬-]/';
 
@@ -65,6 +71,8 @@ class ArticleController extends BaseController
                 'articles' => $allarticles,
             ]);
         }
+
+        DB::beginTransaction();
         $article = new Article();
         $article->ab_name = $name;
         $article->ab_price = $price;
@@ -73,14 +81,32 @@ class ArticleController extends BaseController
         $article->ab_createdate = date('Y-m-d H:i:s');
         $article->save();
 
-        $successMsg = "Ihr Artikel wurde erfolgreich eingestellt!";
-        session()->put('successMsg',$successMsg);
+
+        $maxID = Article::query()->selectRaw("MAX(id)")->get();
+        $currentId = $maxID[0]->max;
+
+        try {
+            Articlecategory::query()->where('id',"=",$categoryID)->firstOrFail();
+            $c = new Article_has_articlecategory();
+            $c->ab_article_id = $currentId;
+            $c->ab_articlecategory_id = $categoryID;
+            $c->save();
+            $successMsg = "Ihr Artikel wurde erfolgreich eingestellt!";
+            session()->put('successMsg',$successMsg);
+            DB::commit();
+        } catch (ModelNotFoundException $exception)
+        {
+            $errMsg = "Es ist ein Fehler aufgetreten. Bitte korrigieren Sie Ihre Eingaben und verwenden Sie keine Sonderzeichen.";
+            session()->put('errMsgArticle',$errMsg);
+            DB::rollBack();
+            $allarticles = Article::all();
+            return view('articles', [
+                'articles' => $allarticles,
+            ]);
+        }
 
         if (($request->file('img')->extension() == 'jpg' || $request->file('img')->extension() == "png") && $request->file('img')->getSize() < 1.2e+7)
         {
-            $maxID = Article::query()->selectRaw("MAX(id)")->get();
-            $currentId = $maxID[0]->max;
-
             $request->file('img')->storeAs('/useruploads',$currentId . '.' . $request->file('img')->extension());
             $image = NULL;
             if ($request->file('img')->extension() == "png")
