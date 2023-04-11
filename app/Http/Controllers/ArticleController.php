@@ -43,9 +43,8 @@ class ArticleController extends BaseController
 
     public function sell(Request $request)
     {
-        if (!session()->has('abalo_user'))
-        {
-            return redirect()->action([AuthController::class,'login']);
+        if (!session()->has('abalo_user')) {
+            return redirect()->action([AuthController::class, 'login']);
         }
         $category = Articlecategory::all();
         return view('sell', [
@@ -62,10 +61,9 @@ class ArticleController extends BaseController
 
         $pattern = '/[\'^£$%&*()}{@#~?><>,|=_+¬-]/';
 
-        if (empty($name) || strlen($name) > 60 || preg_match($pattern,$name) || empty($price) || !is_numeric($price) || $price <= 0 || strlen($description) > 1000 || str_contains($description, '??') || empty($description))
-        {
+        if (empty($name) || strlen($name) > 60 || preg_match($pattern, $name) || empty($price) || !is_numeric($price) || $price <= 0 || strlen($description) > 1000 || str_contains($description, '??') || empty($description)) {
             $errMsg = "Es ist ein Fehler aufgetreten. Bitte korrigieren Sie Ihre Eingaben und verwenden Sie keine Sonderzeichen.";
-            session()->put('errMsgArticle',$errMsg);
+            session()->put('errMsgArticle', $errMsg);
             $allarticles = Article::all();
             return view('articles', [
                 'articles' => $allarticles,
@@ -87,19 +85,18 @@ class ArticleController extends BaseController
         $currentId = $maxID[0]->max;
 
         try {
-            Articlecategory::query()->where('id',"=",$categoryID)->firstOrFail();
+            Articlecategory::query()->where('id', "=", $categoryID)->firstOrFail();
             $c = new Article_has_articlecategory();
             $c->ab_article_id = $currentId;
             $c->ab_articlecategory_id = $categoryID;
             $c->save();
             $successMsg = "Ihr Artikel wurde erfolgreich eingestellt!";
-            session()->put('successMsg',$successMsg);
+            session()->put('successMsg', $successMsg);
 
             DB::commit();
-        } catch (ModelNotFoundException $exception)
-        {
+        } catch (ModelNotFoundException $exception) {
             $errMsg = "Es ist ein Fehler aufgetreten. Bitte korrigieren Sie Ihre Kategorie.";
-            session()->put('errMsgArticle',$errMsg);
+            session()->put('errMsgArticle', $errMsg);
 
             DB::rollBack();
 
@@ -109,28 +106,21 @@ class ArticleController extends BaseController
             ]);
         }
 
-        if (($request->file('img')->extension() == 'jpg' || $request->file('img')->extension() == "png") && $request->file('img')->getSize() < 1.2e+7)
-        {
-            $request->file('img')->storeAs('/useruploads',$currentId . '.' . $request->file('img')->extension());
+        if (($request->file('img')->extension() == 'jpg' || $request->file('img')->extension() == "png") && $request->file('img')->getSize() < 1.2e+7) {
+            $request->file('img')->storeAs('/useruploads', $currentId . '.' . $request->file('img')->extension());
             $image = NULL;
-            if ($request->file('img')->extension() == "png")
-            {
-                $image = imagecreatefrompng(storage_path(). '/app/useruploads/' . $currentId . '.' . $request->file('img')->extension());
-            }
-            else if ($request->file('img')->extension() == "jpg")
-            {
-                $image = imagecreatefromjpeg(storage_path(). '/app/useruploads/' . $currentId . '.' . $request->file('img')->extension());
+            if ($request->file('img')->extension() == "png") {
+                $image = imagecreatefrompng(storage_path() . '/app/useruploads/' . $currentId . '.' . $request->file('img')->extension());
+            } else if ($request->file('img')->extension() == "jpg") {
+                $image = imagecreatefromjpeg(storage_path() . '/app/useruploads/' . $currentId . '.' . $request->file('img')->extension());
             }
 
-            $imgResized = imagescale($image,200,200);
+            $imgResized = imagescale($image, 200, 200);
 
-            if ($request->file('img')->extension() == "png")
-            {
-                imagepng($imgResized,public_path(). '/img/' . $currentId . '.' . $request->file('img')->extension());
-            }
-            else if ($request->file('img')->extension() == "jpg")
-            {
-                imagejpeg($imgResized,public_path(). '/img/' . $currentId . '.' . $request->file('img')->extension());
+            if ($request->file('img')->extension() == "png") {
+                imagepng($imgResized, public_path() . '/img/' . $currentId . '.' . $request->file('img')->extension());
+            } else if ($request->file('img')->extension() == "jpg") {
+                imagejpeg($imgResized, public_path() . '/img/' . $currentId . '.' . $request->file('img')->extension());
             }
         }
 
