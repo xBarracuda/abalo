@@ -106,7 +106,7 @@ class ArticleController extends BaseController
             ]);
         }
 
-        if (($request->file('img')->extension() == 'jpg' || $request->file('img')->extension() == "png") && $request->file('img')->getSize() < 1.2e+7) {
+        if ($request->hasFile('img') && ($request->file('img')->extension() == 'jpg' || $request->file('img')->extension() == "png") && $request->file('img')->getSize() < 1.2e+7) {
             $request->file('img')->storeAs('/useruploads', $currentId . '.' . $request->file('img')->extension());
             $image = NULL;
             if ($request->file('img')->extension() == "png") {
