@@ -44,7 +44,7 @@
         titleInput.type = "text";
         titleInput.name = "name";
         titleInput.id = "name";
-        titleInput.className = "rounded-lg w-full placeholder:opacity-0"
+        titleInput.className = "rounded-lg w-full max-lg:placeholder:opacity-0"
         titleInput.placeholder = "Name des Artikels"
         gridContainer.appendChild(titleInput);
 
@@ -100,7 +100,7 @@
         priceInput.name = "price";
         priceInput.id = "price";
         priceInput.placeholder = "EUR";
-        priceInput.className = "rounded-lg w-1/4 placeholder:opacity-0"
+        priceInput.className = "rounded-lg w-1/4 max-lg:placeholder:opacity-0"
         priceFlex.appendChild(priceInput);
 
         let priceInfo = document.createElement('div');
