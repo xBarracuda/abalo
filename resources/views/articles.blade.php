@@ -29,7 +29,7 @@
                             class="" alt="{{$a->ab_name}}">
                         <div class="container">
                             <h4 class="h-10"><b>{{$a->ab_name}}</b></h4>
-                            <p class="underline h-10">{{number_format($a->ab_price,2)}}€</p>
+                            <p class="underline h-10">{{number_format($a->ab_price,2,',','.')}}€</p>
                             <button class="info_buttons text-xs underline mb-4"
                                     value="{{$a->id}}/??/{{$a->ab_name}}/??/{{$a->ab_price}}/??/{{$a->ab_description}}">
                                 Mehr Informationen
