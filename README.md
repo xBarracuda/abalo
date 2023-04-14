@@ -1,4 +1,4 @@
-Gani Aytan - 3517912
+Gani Aytan - 3517912 <br>
 Mert Karaköse - 3515190
 
 # Abalo - Online Marketplace
