@@ -23,7 +23,7 @@
         @if($articles && count($articles) != 0)
             <div class="flex justify-evenly flex-wrap">
                 @foreach($articles as $a)
-                    <div class="card m-10 w-48 bg-gray-400/30 p-5 abalo_article" id="{{$a->id}}">
+                    <div class="card m-10 w-48 bg-gray-400/30 p-5 abalo_article shadow-xl" id="{{$a->id}}">
                         <img
                             src="@if(file_exists('img/'.$a->id.'.png')) {{asset('img/'.$a->id.'.png')}} @elseif(file_exists(('img/'.$a->id.'.jpg'))) {{asset('img/'.$a->id.'.jpg')}} @elseif(file_exists(('img/'.trim($a->ab_name).'.jpg'))) {{asset('img/'.$a->ab_name.'.jpg')}} @elseif(file_exists(('img/'.trim($a->ab_name).'.png'))) {{asset('img/'.$a->ab_name.'.png')}} @else {{asset('img/0.png')}} @endif"
                             class="" alt="{{$a->ab_name}}">
@@ -50,7 +50,7 @@
                         </button>
                     </div>
                     <div id="info_{{$a->id}}"
-                         class="abalo_info info p-4 max-lg:p-0 text-center rounded-xl max-lg:w-3/4 max-lg:w-3/4 w-1/3 h-3/4 bg-gray-200 fixed z-20">
+                         class="abalo_info info shadow-2xl p-4 max-lg:p-0 text-center rounded-xl max-lg:w-3/4 max-lg:w-3/4 w-1/3 h-3/4 bg-gray-200 fixed z-20">
                         <div class="absolute right-0 mr-4">
                             <button id="info_close_{{$a->id}}">
                                 <i class="fa-solid fa-xmark"></i>

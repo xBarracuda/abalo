@@ -103,9 +103,26 @@ for (let i = 0; i < document.getElementsByClassName('info_buttons').length; i++)
         const ID = arr[0], ab_name = arr[1], ab_price = arr[2], ab_description = arr[3];
 
         document.getElementById('info_' + ID).style.display = "initial";
+        let buttons = document.querySelectorAll('button');
+        for (let i = 0; i < buttons.length; i++)
+        {
+            if (buttons[i].className.includes('info_buttons'))
+            {
+                buttons[i].disabled = true;
+            }
+        }
+
 
         document.getElementById('info_close_' + ID).addEventListener('click', function () {
             document.getElementById('info_' + ID).style.display = "none";
+            let buttons = document.querySelectorAll('button');
+            for (let i = 0; i < buttons.length; i++)
+            {
+                if (buttons[i].className.includes('info_buttons'))
+                {
+                    buttons[i].disabled = false;
+                }
+            }
         });
     });
 
