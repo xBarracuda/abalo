@@ -5,11 +5,7 @@
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <script src="https://kit.fontawesome.com/1f2fd08344.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://unpkg.com/flowbite@1.5.5/dist/flowbite.min.css"/>
-    <script src="https://unpkg.com/flowbite@1.5.5/dist/flowbite.js"></script>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="/css/app.css">
     <link rel="icon" href="{{asset('img/abalo-logos.png')}}">
     @yield('head')
     @vite('resources/css/app.css')
@@ -312,5 +308,8 @@
 <script src="{{asset('js/app.js')}}"></script>
 <script src="{{asset('js/articles.js')}}"></script>
 <script src="{{asset('js/newsletter.js')}}"></script>
+<script src="https://unpkg.com/flowbite@1.5.5/dist/flowbite.js"></script>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://kit.fontawesome.com/1f2fd08344.js" crossorigin="anonymous"></script>
 
 </body>
