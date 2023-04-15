@@ -1,0 +1,23 @@
+#navbar {
+    visibility: hidden;
+}
+
+#searchbar {
+    visibility: hidden;
+}
+
+#aboutBar {
+    visibility: hidden;
+}
+
+#cookie-consent {
+    visibility: hidden;
+}
+
+#cart {
+    visibility: hidden;
+}
+
+#cart-table {
+    display: none;
+}
