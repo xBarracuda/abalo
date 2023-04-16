@@ -26,6 +26,8 @@ jobs:
       run: chmod -R 777 storage bootstrap/cache
     - name: Install npm Packages
       run: npm install
+    - name: Start
+      run : php artisan serve
     - name: Create Database
       run: |
         mkdir -p database
