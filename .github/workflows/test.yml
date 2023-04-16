@@ -1,4 +1,4 @@
-name: Laravel
+name: Abalo-Test
 
 on:
   push:
@@ -26,9 +26,9 @@ jobs:
       run: chmod -R 777 storage bootstrap/cache
     - name: Install npm Packages
       run: npm install
-    - name: install npm 
+    - name: Install npm 
       run:  npm ci
-    - name: run npm 
+    - name: Run npm 
       run:  npm run build
     - name: Create Database
       run: |
