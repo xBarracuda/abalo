@@ -18,42 +18,62 @@
                 <a href="/"><img src="{{asset('img/abalo-logos.png')}}" width="80" class=" mx-auto"></a>
             </div>
             <div class="mr-16 max-xl:hidden" id="navigationItems">
-                <div class="flex justify-evenly align-items-center">
-                    <div class="mt-8">
-                        <a href="/"
-                           class="hover:underline @if(\Illuminate\Support\Facades\Route::getCurrentRoute()->getName() == 'home') underline decoration-1 font-bold @endif hover:font-bold">Home</a>
-                    </div>
-                    <div class="mt-8">
-                        <a href="/category"
-                           class="hover:underline @if(\Illuminate\Support\Facades\Route::getCurrentRoute()->getName() == 'category') underline decoration-1 font-bold @endif hover:font-bold">Kategorien</a>
-                    </div>
-                    <div class="mt-8">
-                        <a href="/articles"
-                           class="hover:underline @if(\Illuminate\Support\Facades\Route::getCurrentRoute()->getName() == 'articles') underline decoration-1 font-bold @endif hover:font-bold">Artikel</a>
-                    </div>
-                    <div class="mt-8">
-                        <a href="/newarticle"
-                           class="hover:underline @if(\Illuminate\Support\Facades\Route::getCurrentRoute()->getName() == 'sell') underline decoration-1 font-bold @endif hover:font-bold">Verkaufen</a>
-                    </div>
-                    <div class="mt-8 relative" id="about">
-                        <a href="/about"
-                           class="hover:underline @if(\Illuminate\Support\Facades\Route::getCurrentRoute()->getName() == 'about') underline decoration-1 font-bold @endif hover:font-bold">Unternehmen</a>
-                        <div id="aboutBar" class="w-full bg-gray-300/50 absolute">
-                            <ul class="list-disc">
-                                <a href="/about#philosophy" class="hover:underline">
-                                    <li>Philosophie</li>
-                                </a>
-                                <a href="/about#career" class="hover:underline">
-                                    <li>Karriere</li>
-                                </a>
-                            </ul>
+                <div class="flex justify-evenly align-items-center" id="innerNav">
+                    <script>
+                        const menu = [
+                            { name : "Home", url : "/", sub : [], routeName : "home" },
+                            { name : "Kategorien", url : "/category", sub : [], routeName : "category" },
+                            { name : "Artikel", url : "/articles", sub : [], routeName : "articles" },
+                            { name : "Verkaufen", url : "/newarticle", sub : [], routeName : "sell" },
+                            { name : "Unternehmen", url : "/about", sub : [ { name : "Philosophie", url : "/about#philosophy"}, { name : "Karriere", url : "/about#career"}], routeName : "about" },
+                            { name : "Kontakt", url : "/contact", sub : [], routeName : "contact" },
+                        ];
 
-                        </div>
-                    </div>
-                    <div class="mt-8">
-                        <a href="/contact"
-                           class="hover:underline @if(\Illuminate\Support\Facades\Route::getCurrentRoute()->getName() == 'contact') underline decoration-1 font-bold @endif hover:font-bold">Kontakt</a>
-                    </div>
+                        let currentLocation = "{{\Illuminate\Support\Facades\Route::getCurrentRoute()->getName()}}";
+
+                        for (const obj of menu)
+                        {
+                            var containerNav = document.createElement('div');
+                            containerNav.className = "mt-8";
+                            document.getElementById('innerNav').append(containerNav);
+
+                            var url = document.createElement('a');
+                            url.innerText = obj.name;
+                            url.href = obj.url;
+
+                            url.className = (currentLocation === obj.routeName) ? "hover:underline underline decoration-1 font-bold hover:font-bold" : "hover:underline hover:font-bold";
+
+                            containerNav.append(url);
+
+                            if (obj.sub.length > 0)
+                            {
+                                containerNav.id = obj.url.replace('/','');
+                                containerNav.className = "mt-8 relative";
+
+                                let subContainer = document.createElement('div');
+                                subContainer.id = obj.url.replace('/','') + "Bar";
+                                subContainer.className = "w-full bg-gray-300/50 absolute";
+                                containerNav.append(subContainer);
+
+                                let list = document.createElement('ul');
+                                list.className = "list-disc";
+                                subContainer.append(list);
+
+                                for (const element of obj.sub)
+                                {
+                                    let url = document.createElement('a');
+                                    url.href = element.url;
+                                    url.className = "hover:underline";
+                                    list.append(url);
+
+                                    let item = document.createElement('li');
+                                    item.innerText = element.name;
+                                    url.append(item);
+                                }
+                            }
+                        }
+                    </script>
+
                     <div class="mt-8">
                         <button onclick="searchbar()"><i class="fa-solid fa-magnifying-glass"></i></button>
                     </div>

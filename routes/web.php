@@ -18,7 +18,7 @@ Route::post('/subscribe', [\App\Http\Controllers\HomeController::class, 'subscri
 
 Route::get('/articles/{id?}', [\App\Http\Controllers\ArticleController::class, 'show'])->name('articles');
 Route::post('/articles',[\App\Http\Controllers\ArticleController::class,'verifyArticle']);
-Route::get('newarticle',[\App\Http\Controllers\ArticleController::class,'sell'])->name('sell');
+Route::get('/newarticle',[\App\Http\Controllers\ArticleController::class,'sell'])->name('sell');
 
 Route::get('/contact', [\App\Http\Controllers\ContactController::class, 'show'])->name('contact');
 Route::post('/checkContactData', [\App\Http\Controllers\ContactController::class, 'checkContactData']);
