@@ -14,7 +14,7 @@ Our marketplace features a range of products, from electronics to fashion, and a
 
 ## Steps
 1. Clone the repository to your local machine.
-2. Open the terminal/command prompt and navigate to the project directory;
+2. Open the terminal/command prompt and navigate to the project directory:
 ```
 $ cd abalo
 ```
@@ -34,7 +34,7 @@ $ php artisan migrate
 ```
 8. Run the following command to seed the database with initial data:
 ```
-$ php artisan db::seed --class DevelopmentData
+$ php artisan db:seed --class DevelopmentData
 ```
 9. Run the following command to install npm packages:
 ```
